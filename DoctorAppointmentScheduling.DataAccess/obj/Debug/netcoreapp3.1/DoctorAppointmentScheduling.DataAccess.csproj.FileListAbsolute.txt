@@ -1,0 +1,15 @@
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\bin\Debug\netcoreapp3.1\DoctorAppointmentScheduling.DataAccess.deps.json
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\bin\Debug\netcoreapp3.1\DoctorAppointmentScheduling.DataAccess.runtimeconfig.json
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\bin\Debug\netcoreapp3.1\DoctorAppointmentScheduling.DataAccess.runtimeconfig.dev.json
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\bin\Debug\netcoreapp3.1\DoctorAppointmentScheduling.DataAccess.dll
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\bin\Debug\netcoreapp3.1\DoctorAppointmentScheduling.DataAccess.pdb
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\bin\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Domain.dll
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\bin\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Domain.pdb
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.DataAccess.csprojAssemblyReference.cache
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.DataAccess.AssemblyInfo.cs
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.DataAccess.csproj.CopyComplete
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.DataAccess.dll
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.DataAccess.pdb
+C:\Users\Dmitriy\source\repos\DoctorAppointmentScheduling\Backend\DoctorAppointmentScheduling.DataAccess\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.DataAccess.genruntimeconfig.cache
