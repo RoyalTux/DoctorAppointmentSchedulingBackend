@@ -36,6 +36,7 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
         public void Delete(int Id)
         {
             var entity = _context.Reviews.Find(Id);
+
             if (entity == null)
             {
                 throw new ArgumentNullException();

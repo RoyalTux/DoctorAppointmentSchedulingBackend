@@ -47,6 +47,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         public IActionResult Delete(int id)
         {
             _bookingRepository.Delete(id);
+
             return Ok();
         }
 
@@ -54,6 +55,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         public IActionResult Update([FromBody] Booking booking)
         {
             _bookingRepository.Update(booking);
+
             return Ok();
         }
     }

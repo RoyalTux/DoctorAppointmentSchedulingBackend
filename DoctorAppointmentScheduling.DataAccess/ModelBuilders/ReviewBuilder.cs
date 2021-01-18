@@ -10,6 +10,7 @@ namespace DoctorAppointmentScheduling.DataAccess.ModelBuilders
             modelBuilder.Entity<Review>(entity =>
             {
                 entity.HasKey(e => e.ReviewId);
+
                 entity.Property(e => e.Content)
                     .IsRequired()
                     .HasMaxLength(255)

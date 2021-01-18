@@ -21,23 +21,26 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         public IActionResult Get(int id)
         {
             var result = _doctorRepository.Get(id);
+
             return Ok(result);
         }
 
         // POST api/<DoctorController>
         [HttpPost]
-        public IActionResult Post([FromBody] Doctor doc)
+        public IActionResult Post([FromBody] Doctor doctor)
         {
-            var newDocID = _doctorRepository.Add(doc);
-            var newDoc = _doctorRepository.Get(newDocID);
-            return Created($"api/<DoctorContoller>/{newDocID}", newDoc);
+            var newDoctorId = _doctorRepository.Add(doctor);
+            var newDoctor = _doctorRepository.Get(newDoctorId);
+
+            return Created($"api/<DoctorContoller>/{newDoctorId}", newDoctor);
         }
 
         // PUT api/<DoctorController>/5
         [HttpPut("{id}")]
-        public IActionResult Update([FromBody] Doctor Doc)
+        public IActionResult Update([FromBody] Doctor Doctor)
         {
-            _doctorRepository.Update(Doc);
+            _doctorRepository.Update(Doctor);
+
             return Ok();
         }
 
@@ -46,6 +49,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         public IActionResult Delete(int id)
         {
             _doctorRepository.Delete(id);
+
             return Ok();
         }
     }

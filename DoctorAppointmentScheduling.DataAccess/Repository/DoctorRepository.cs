@@ -65,6 +65,7 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
         public void Update(domain.Doctor newDoctor)
         {
             var entity = _context.Doctors.Find(newDoctor.DoctorId);
+
             if (entity == null)
             {
                 throw new ArgumentNullException();
@@ -89,6 +90,7 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
         public void Delete(int id)
         {
             var entity = _context.Doctors.Find(id);
+
             if (entity == null)
             {
                 throw new ArgumentNullException();
@@ -103,8 +105,10 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
         {
             var ratings = _context.Reviews
                 .Where(r => r.DoctorId == DoctorId);
+
             double sum = 0;
             double count = 0;
+
             foreach (Review x in ratings)
             {
                 sum += x.Rating;

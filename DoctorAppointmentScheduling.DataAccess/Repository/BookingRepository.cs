@@ -36,6 +36,7 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
         public void Delete(int Id)
         {
             var booking = _context.Bookings.Find(Id);
+
             if (booking == null)
             {
                 throw new ArgumentNullException();
@@ -79,6 +80,7 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
         public domain.Booking GetById(int BookingId)
         {
             var entity = _context.Bookings.Find(BookingId);
+
             if (entity == null)
             {
                 throw new ArgumentNullException();
@@ -97,6 +99,7 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
         public void Update(domain.Booking newBooking)
         {
             var entity = _context.Bookings.Find(newBooking.BookingId);
+
             if (entity == null)
             {
                 throw new ArgumentNullException();

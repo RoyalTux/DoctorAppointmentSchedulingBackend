@@ -35,6 +35,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         public IActionResult Update([FromBody] Review review)
         {
             _reviewRepository.Update(review);
+
             return Ok();
         }
 
@@ -42,6 +43,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         public IActionResult Delete(int id)
         {
             _reviewRepository.Delete(id);
+
             return Ok();
         }
     }
