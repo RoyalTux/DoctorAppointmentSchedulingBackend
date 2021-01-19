@@ -28,7 +28,16 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         [HttpGet("doctor/{id}")]
         public IActionResult GetDoctorReviews(int id)
         {
-            return Ok(_reviewRepository.GetReviews(id));
+            var reviews = _reviewRepository.GetReviews(id);
+
+            if(reviews != null)
+            {
+                return Ok(reviews);
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
         [HttpPut()]

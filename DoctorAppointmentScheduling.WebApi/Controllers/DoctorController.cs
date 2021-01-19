@@ -22,7 +22,15 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         {
             var result = _doctorRepository.Get(id);
 
-            return Ok(result);
+            if(result != null)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound();
+            }
+            
         }
 
         // POST api/<DoctorController>

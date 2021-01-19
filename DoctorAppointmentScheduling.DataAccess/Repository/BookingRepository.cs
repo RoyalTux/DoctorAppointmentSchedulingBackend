@@ -81,19 +81,20 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
         {
             var entity = _context.Bookings.Find(BookingId);
 
-            if (entity == null)
-            {
-                throw new ArgumentNullException();
+            if (entity != null)
+            {                      
+                return new domain.Booking
+                {
+                    BookingId = entity.BookingId,
+                    Date = entity.Date,
+                    UserId = entity.UserId,
+                    DoctorId = entity.DoctorId,
+                    Description = entity.Description
+                };
             }
 
-            return new domain.Booking
-            {
-                BookingId = entity.BookingId,
-                Date = entity.Date,
-                UserId = entity.UserId,
-                DoctorId = entity.DoctorId,
-                Description = entity.Description
-            };
+            // throw new ArgumentNullException();
+            return null;
         }
 
         public void Update(domain.Booking newBooking)

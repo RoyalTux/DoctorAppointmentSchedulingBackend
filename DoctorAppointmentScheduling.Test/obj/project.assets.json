@@ -1648,16 +1648,6 @@
         "build": {
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
-      },
-      "DoctorAppointmentScheduling.WebAPi/1.0.0": {
-        "type": "project",
-        "framework": "Unsupported,Version=v0.0",
-        "compile": {
-          "bin/placeholder/DoctorAppointmentScheduling.WebAPi.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DoctorAppointmentScheduling.WebAPi.dll": {}
-        }
       }
     }
   },
@@ -5604,16 +5594,10 @@
         "xunit.runner.visualstudio.2.4.3.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
-    },
-    "DoctorAppointmentScheduling.WebAPi/1.0.0": {
-      "type": "project",
-      "path": "../DoctorAppointmentScheduling.WebApi/DoctorAppointmentScheduling.WebAPi.csproj",
-      "msbuildProject": "../DoctorAppointmentScheduling.WebApi/DoctorAppointmentScheduling.WebAPi.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "DoctorAppointmentScheduling.WebAPi >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.7.1",
       "coverlet.collector >= 1.3.0",
       "xunit >= 2.4.1",
@@ -5653,11 +5637,7 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {
-            "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.WebApi\\DoctorAppointmentScheduling.WebAPi.csproj": {
-              "projectPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.WebApi\\DoctorAppointmentScheduling.WebAPi.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -5709,16 +5689,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1201",
-      "level": "Error",
-      "message": "Project DoctorAppointmentScheduling.WebAPi is not compatible with netcoreapp3.1 (.NETCoreApp,Version=v3.1). Project DoctorAppointmentScheduling.WebAPi supports: net5.0 (.NETCoreApp,Version=v5.0)",
-      "libraryId": "DoctorAppointmentScheduling.WebAPi",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }
