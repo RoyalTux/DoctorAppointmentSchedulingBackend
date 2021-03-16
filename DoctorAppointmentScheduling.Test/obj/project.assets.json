@@ -4485,11 +4485,12 @@
       ]
     },
     "System.Runtime.InteropServices.RuntimeInformation/4.3.0": {
-      "sha512": "srfOkZ2z9e909dTg73oKlHn6ZieCg62pqqi/TuO3vrk5Gc+tDO4VrR26DIt+x+pMOUPBHbcNgdgVwxjAiyJ4WQ==",
+      "sha512": "cbz4YJMqRDR7oLeMRbdYv7mYzc++17lNhScCX0goO2XpGWdvAt60CGN+FHdePUEHCe/Jy9jUlvNAiNdM+7jsOw==",
       "type": "package",
       "path": "system.runtime.interopservices.runtimeinformation/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -5605,27 +5606,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dmitriy\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\d.shchebetovskyi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.Test\\DoctorAppointmentScheduling.Test.csproj",
+      "projectUniqueName": "C:\\Users\\d.shchebetovskyi\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Test\\DoctorAppointmentScheduling.Test.csproj",
       "projectName": "DoctorAppointmentScheduling.Test",
-      "projectPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.Test\\DoctorAppointmentScheduling.Test.csproj",
-      "packagesPath": "C:\\Users\\Dmitriy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.Test\\obj\\",
+      "projectPath": "C:\\Users\\d.shchebetovskyi\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Test\\DoctorAppointmentScheduling.Test.csproj",
+      "packagesPath": "C:\\Users\\d.shchebetovskyi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\d.shchebetovskyi\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Test\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Dmitriy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\d.shchebetovskyi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -5686,7 +5680,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj": {}
+    "C:\\Users\\d.shchebetovskyi\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj": {
+    "C:\\Users\\d.shchebetovskyi\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\d.shchebetovskyi\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj",
         "projectName": "DoctorAppointmentScheduling.Domain",
-        "projectPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj",
-        "packagesPath": "C:\\Users\\Dmitriy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.Domain\\obj\\",
+        "projectPath": "C:\\Users\\d.shchebetovskyi\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj",
+        "packagesPath": "C:\\Users\\d.shchebetovskyi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\d.shchebetovskyi\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Dmitriy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\d.shchebetovskyi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -59,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
