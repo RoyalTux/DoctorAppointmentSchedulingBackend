@@ -8,8 +8,6 @@ namespace DoctorAppointmentScheduling.Domain.Interfaces
 
         T Get(int Id);
 
-        IEnumerable<T> GetAll(string name);
-
         int Update(T newEntity);
 
         void Delete(int Id);

@@ -6,24 +6,24 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class PatientController : ControllerBase
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IBaseRepository<Patient> _patientRepository;
 
-        public UserController(IUserRepository userRepository)
+        public PatientController(IBaseRepository<Patient> patientRepository)
         {
-            _userRepository = userRepository;
+            _patientRepository = patientRepository;
         }
 
         // GET api/<UserController>/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var user = _userRepository.Get(id);
+            var patient = _patientRepository.Get(id);
 
-            if(user != null)
+            if(patient != null)
             {
-                return Ok(user);
+                return Ok(patient);
             }
             else
             {
@@ -33,19 +33,19 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
 
         // POST api/<UserController>
         [HttpPost]
-        public IActionResult Post([FromBody] Patient user)
+        public IActionResult Post([FromBody] Patient patient)
         {
-            var newUserId = _userRepository.Add(user);
-            var newUser = _userRepository.Get(newUserId);
+            var newPatientId = _patientRepository.Add(patient);
+            var newPatient = _patientRepository.Get(newPatientId);
 
-            return Created($"api/<UserController>/{newUserId}", newUser);
+            return Created($"api/<PatientController>/{newPatientId}", newPatient);
         }
 
         // PUT api/<UserController>
         [HttpPut()]
-        public IActionResult Put([FromBody] Patient user)
+        public IActionResult Put([FromBody] Patient patient)
         {
-            _userRepository.Update(user);
+            _patientRepository.Update(patient);
 
             return Ok();
         }
@@ -54,7 +54,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _userRepository.Delete(id);
+            _patientRepository.Delete(id);
 
             return Ok();
         }

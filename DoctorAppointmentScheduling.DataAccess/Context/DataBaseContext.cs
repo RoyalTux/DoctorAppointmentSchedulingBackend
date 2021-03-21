@@ -13,20 +13,20 @@ namespace DoctorAppointmentScheduling.DataAccess
         {
         }
 
-        public virtual DbSet<Booking> Bookings { get; set; }
+        public virtual DbSet<AppointmentDataEntity> Bookings { get; set; }
 
-        public virtual DbSet<Doctor> Doctors { get; set; }
+        public virtual DbSet<DoctorDataEntity> Doctors { get; set; }
 
-        public virtual DbSet<Review> Reviews { get; set; }
+        public virtual DbSet<PatientDataEntity> Patients { get; set; }
 
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<ReviewDataEntity> Reviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            BookingBuilder.BuildBooking(modelBuilder);
+            AppointmentBuilder.BuildAppointment(modelBuilder);
             DoctorBuilder.BuildDoctor(modelBuilder);
             ReviewBuilder.BuildReview(modelBuilder);
-            UserBuilder.BuildUser(modelBuilder);
+            PatientBuilder.BuildPatient(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
         }

@@ -9,7 +9,7 @@ namespace DoctorAppointmentScheduling.Domain.Models
 
         public int ExperienceYears { get; set; }
 
-        public List<CostOfServices> CostOfServices = new List<CostOfServices>();
+        public List<Specialzation> Specializations = new List<Specialzation>();
 
         public Rating? Rating { get; set; }
     }

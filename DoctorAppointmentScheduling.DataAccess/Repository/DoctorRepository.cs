@@ -1,8 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using DoctorAppointmentScheduling.DataAccess.Enums;
 using DoctorAppointmentScheduling.DataAccess.Models;
 using DoctorAppointmentScheduling.Domain.Interfaces;
-using domain = DoctorAppointmentScheduling.Domain.Models;
+using DoctorAppointmentScheduling.Domain.Models;
 
 namespace DoctorAppointmentScheduling.DataAccess.Repository
 {
@@ -15,61 +15,48 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
             _context = context;
         }
 
-        public domain.Doctor Get(int id)
+        public Doctor Get(int id)
         {
-            var entity = _context.Doctors.Find(id);
+            var doctor = _context.Doctors.Find(id);
 
-            return new domain.Doctor
+            return new Doctor
             {
-                UserName = entity.UserName,
-                FirstName = entity.FirstName,
-                LastName = entity.LastName,
-                Bio = entity.Bio,
-                Country = entity.Country,
-                City = entity.City,        
-                DoctorId = entity.DoctorId,
-                Email = entity.Email,
-                ExperienceYears = entity.ExperienceYears,
-                Payment = entity.Payment,
-                Phone = entity.Phone,
-                Rating = entity.Rating
+                FirstName = doctor.FirstName,
+                LastName = doctor.LastName,
+                Email = doctor.Email,
+                Country = doctor.Country,
+                City = doctor.City,
+                Bio = doctor.Bio,
+                ExperienceYears = doctor.ExperienceYears,
+                Phone = doctor.Phone,
+                Rating = (Domain.Enums.Rating?)doctor.Rating
             };
         }
 
-        public int Add(domain.Doctor newDoctor)
+        public int Add(Doctor newDoctor)
         {
-            var entity = new Doctor
+            var entity = new DoctorDataEntity
             {
-                UserName = newDoctor.UserName,
-                PassWord = newDoctor.PassWord,
                 FirstName = newDoctor.FirstName,
                 LastName = newDoctor.LastName,
                 Email = newDoctor.Email,
                 Country = newDoctor.Country,
-                City = newDoctor.City.ToLower(),         
+                City = newDoctor.City,         
                 Bio = newDoctor.Bio,
                 ExperienceYears = newDoctor.ExperienceYears,
-                Payment = newDoctor.Payment,
                 Phone = newDoctor.Phone,
-                Rating = 0,
-                DoctorType = newDoctor.DoctorType
+                Rating = Rating.NO_RATING
             };
 
             _context.Doctors.Add(entity);
-
             _context.SaveChanges();
 
-            return entity.DoctorId;
+            return entity.Id;
         }
 
-        public void Update(domain.Doctor newDoctor)
+        public int Update(Doctor newDoctor)
         {
-            var entity = _context.Doctors.Find(newDoctor.DoctorId);
-
-            if (entity == null)
-            {
-                throw new ArgumentNullException();
-            }
+            var entity = _context.Doctors.Find(newDoctor.Id);
 
             entity.Bio = newDoctor.Bio;
             entity.Country = newDoctor.Country;
@@ -78,44 +65,37 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
             entity.ExperienceYears = newDoctor.ExperienceYears;
             entity.FirstName = newDoctor.FirstName;
             entity.LastName = newDoctor.LastName;
-            entity.PassWord = newDoctor.PassWord;
-            entity.UserName = newDoctor.UserName;
             entity.Phone = newDoctor.Phone;
 
             _context.Doctors.Update(entity);
-
             _context.SaveChanges();
+
+            return newDoctor.Id;
         }
 
         public void Delete(int id)
         {
             var entity = _context.Doctors.Find(id);
 
-            if (entity == null)
-            {
-                throw new ArgumentNullException();
-            }
-
             _context.Doctors.Remove(entity);
-
             _context.SaveChanges();
         }
 
-        public double GetRating(int DoctorId)
+        public Domain.Enums.Rating GetRating(int id)
         {
             var ratings = _context.Reviews
-                .Where(r => r.DoctorId == DoctorId);
+                .Where(r => r.DoctorId == id);
 
-            double sum = 0;
-            double count = 0;
+            int sum = 0;
+            int count = 0;
 
-            foreach (Review x in ratings)
+            foreach (ReviewDataEntity review in ratings)
             {
-                sum += x.Rating;
+                sum += (int)review.Rating;
                 count++;
             }
 
-            return sum / count;
+            return (Domain.Enums.Rating)(sum / count);
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using DoctorAppointmentScheduling.DataAccess.Enums;
 using DoctorAppointmentScheduling.DataAccess.Models;
 using DoctorAppointmentScheduling.Domain.Interfaces;
-using domain = DoctorAppointmentScheduling.Domain.Models;
+using DoctorAppointmentScheduling.Domain.Models;
 
 namespace DoctorAppointmentScheduling.DataAccess.Repository
 {
@@ -16,62 +16,54 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
             _context = context;
         }
 
-        public int Add(domain.Review newReview)
+        public int Add(Review newReview)
         {
-            var entity = new Review
+            var entity = new ReviewDataEntity
             {
                 DoctorId = newReview.DoctorId,
-                UserId = newReview.UserId,
-                Rating = newReview.Rating,
-                Content = newReview.Content
+                PatientId = newReview.PatientId,
+                Rating = (Rating)newReview.Rating,
+                Description = newReview.Description
             };
 
             _context.Reviews.Add(entity);
-
             _context.SaveChanges();
 
-            return entity.ReviewId;
+            return entity.Id;
         }
 
         public void Delete(int Id)
         {
             var entity = _context.Reviews.Find(Id);
 
-            if (entity == null)
-            {
-                throw new ArgumentNullException();
-            }
-
             _context.Reviews.Remove(entity);
-
             _context.SaveChanges();
         }
 
-        public IEnumerable<domain.Review> Get(int DoctorId)
+        public IEnumerable<Review> Get(int DoctorId)
         {
             var entities = _context.Reviews
                 .Where(r => r.DoctorId == DoctorId);
 
-            return entities.Select(m => new domain.Review
+            return entities.Select(review => new Review
             {
-                ReviewId = m.ReviewId,
-                Rating = m.Rating,
-                Content = m.Content,
-                DoctorId = m.DoctorId,
-                UserId = m.UserId
+                Id = review.Id,
+                Rating = (Domain.Enums.Rating)review.Rating,
+                Description = review.Description,
+                DoctorId = review.DoctorId,
+                PatientId = review.PatientId
             });
         }
 
-        public void Update(domain.Review newReview)
+        public void Update(Review newReview)
         {
-            var entity = _context.Reviews.Find(newReview.ReviewId);
+            var entity = _context.Reviews.Find(newReview.Id);
             entity.DoctorId = newReview.DoctorId;
-            entity.UserId = newReview.UserId;
-            entity.Rating = newReview.Rating;
-            entity.Content = newReview.Content;
+            entity.PatientId = newReview.PatientId;
+            entity.Rating = (Rating)newReview.Rating;
+            entity.Description = newReview.Description;
 
             _context.Reviews.Update(entity);
-
             _context.SaveChanges();
         }
     }

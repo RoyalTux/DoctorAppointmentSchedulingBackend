@@ -1,4 +1,4 @@
-﻿namespace DoctorAppointmentScheduling.Domain.Enums
+﻿namespace DoctorAppointmentScheduling.DataAccess.Enums
 {
     public enum Rating
     {

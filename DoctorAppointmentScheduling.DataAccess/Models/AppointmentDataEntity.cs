@@ -2,16 +2,16 @@
 
 namespace DoctorAppointmentScheduling.DataAccess.Models
 {
-    public class Booking
+    public class AppointmentDataEntity
     {
-        public int BookingId { get; set; }
+        public int Id { get; set; }
 
         public int DoctorId { get; set; }
 
-        public int UserId { get; set; }
+        public int PatientId { get; set; }
 
         public string Description { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime DateTime { get; set; }
     }
 }

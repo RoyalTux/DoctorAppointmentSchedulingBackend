@@ -3,13 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DoctorAppointmentScheduling.DataAccess.ModelBuilders
 {
-    public class UserBuilder
+    public class PatientBuilder
     {
-        public static void BuildUser(ModelBuilder modelBuilder)
+        public static void BuildPatient(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>(entity =>
+            modelBuilder.Entity<PatientDataEntity>(entity =>
             {
-                entity.HasKey(e => e.UserId);
+                entity.HasKey(e => e.Id);
 
                 entity.Property(e => e.City)
                     .IsRequired()
@@ -27,21 +27,11 @@ namespace DoctorAppointmentScheduling.DataAccess.ModelBuilders
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.PassWord)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("password");
-
                 entity.Property(e => e.Phone).HasMaxLength(15);
 
                 entity.Property(e => e.Country)
                     .IsRequired()
                     .HasMaxLength(50);
-
-                entity.Property(e => e.UserName)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("username");
 
                 entity.HasMany(e => e.Appointments);
             });

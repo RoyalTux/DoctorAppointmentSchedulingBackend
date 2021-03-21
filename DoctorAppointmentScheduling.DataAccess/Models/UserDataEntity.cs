@@ -2,14 +2,8 @@
 
 namespace DoctorAppointmentScheduling.DataAccess.Models
 {
-    public class User
+    public class UserDataEntity
     {
-        public int UserId { get; set; }
-
-        public string UserName { get; set; }
-
-        public string PassWord { get; set; }
-
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
@@ -20,8 +14,10 @@ namespace DoctorAppointmentScheduling.DataAccess.Models
 
         public string City { get; set; }
 
+        public string Bio { get; set; }
+
         public string Phone { get; set; }
 
-        public List<Booking> Appointments = new List<Booking>();
+        public List<AppointmentDataEntity> Appointments = new List<AppointmentDataEntity>();
     }
 }

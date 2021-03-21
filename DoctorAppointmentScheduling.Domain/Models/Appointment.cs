@@ -2,7 +2,7 @@
 
 namespace DoctorAppointmentScheduling.Domain.Models
 {
-    public class Booking
+    public class Appointment
     {
         public int Id { get; set; }
 

@@ -7,11 +7,11 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BookingController : ControllerBase
+    public class AppointmentController : ControllerBase
     {
-        private readonly IBookingRepository _bookingRepository;
+        private readonly IAppointmentRepository _bookingRepository;
 
-        public BookingController(IBookingRepository bookingRepository)
+        public AppointmentController(IAppointmentRepository bookingRepository)
         {
             _bookingRepository = bookingRepository;
         }
@@ -32,7 +32,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult CreateBooking([FromBody] Booking booking)
+        public IActionResult CreateBooking([FromBody] Appointment booking)
         {
             int BookingId = _bookingRepository.Add(booking);
             var result = _bookingRepository.Get(BookingId);
@@ -46,7 +46,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
             var booking = _bookingRepository.GetByDoctor(id);
             int bookingsNumber = 0;
 
-            using (IEnumerator<Booking> enumerator = booking.GetEnumerator())
+            using (IEnumerator<Appointment> enumerator = booking.GetEnumerator())
             {
                 while (enumerator.MoveNext())
                     bookingsNumber++;
@@ -62,13 +62,13 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
             }
         }
 
-        [HttpGet("user/{id}")]
+        [HttpGet("patient/{id}")]
         public IActionResult GetByUser(int id)
         {
-            var booking = _bookingRepository.GetByUser(id);
+            var booking = _bookingRepository.GetByPatient(id);
             int bookingsNumber = 0;
 
-            using (IEnumerator<Booking> enumerator = booking.GetEnumerator())
+            using (IEnumerator<Appointment> enumerator = booking.GetEnumerator())
             {
                 while (enumerator.MoveNext())
                     bookingsNumber++;
@@ -93,7 +93,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         }
 
         [HttpPut()]
-        public IActionResult Update([FromBody] Booking booking)
+        public IActionResult Update([FromBody] Appointment booking)
         {
             _bookingRepository.Update(booking);
 

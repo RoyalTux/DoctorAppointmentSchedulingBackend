@@ -3,15 +3,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DoctorAppointmentScheduling.DataAccess.ModelBuilders
 {
-    public class BookingBuilder
+    public class AppointmentBuilder
     {
-        public static void BuildBooking(ModelBuilder modelBuilder)
+        public static void BuildAppointment(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Booking>(entity =>
+            modelBuilder.Entity<AppointmentDataEntity>(entity =>
             {
-                entity.HasKey(e => e.BookingId);
+                entity.HasKey(e => e.Id);
 
-                entity.Property(e => e.Date).HasColumnType("date");
+                entity.Property(e => e.DateTime).HasColumnType("datetime");
 
                 entity.Property(e => e.Description).HasMaxLength(200);
             });

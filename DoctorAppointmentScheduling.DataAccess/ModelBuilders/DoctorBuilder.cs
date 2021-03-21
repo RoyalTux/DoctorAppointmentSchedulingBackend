@@ -7,9 +7,9 @@ namespace DoctorAppointmentScheduling.DataAccess.ModelBuilders
     {
         public static void BuildDoctor(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Doctor>(entity =>
+            modelBuilder.Entity<DoctorDataEntity>(entity =>
             {
-                entity.HasKey(e => e.DoctorId);
+                entity.HasKey(e => e.Id);
 
                 entity.Property(e => e.Bio)
                     .IsRequired()
@@ -31,26 +31,13 @@ namespace DoctorAppointmentScheduling.DataAccess.ModelBuilders
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.PassWord)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("password");
-
                 entity.Property(e => e.Phone).HasMaxLength(15);
 
                 entity.Property(e => e.Country)
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.UserName)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("username");
-
-                entity.Property(e => e.DoctorType)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("doctorType");
+                entity.HasMany(e => e.Specializations);
 
                 entity.HasMany(e => e.Appointments);
             });
