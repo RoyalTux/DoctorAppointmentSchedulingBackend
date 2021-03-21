@@ -47,7 +47,7 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
             _context.SaveChanges();
         }
 
-        public IEnumerable<domain.Review> GetReviews(int DoctorId)
+        public IEnumerable<domain.Review> Get(int DoctorId)
         {
             var entities = _context.Reviews
                 .Where(r => r.DoctorId == DoctorId);

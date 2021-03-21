@@ -33,7 +33,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
 
         // POST api/<UserController>
         [HttpPost]
-        public IActionResult Post([FromBody] User user)
+        public IActionResult Post([FromBody] Patient user)
         {
             var newUserId = _userRepository.Add(user);
             var newUser = _userRepository.Get(newUserId);
@@ -43,7 +43,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
 
         // PUT api/<UserController>
         [HttpPut()]
-        public IActionResult Put([FromBody] User user)
+        public IActionResult Put([FromBody] Patient user)
         {
             _userRepository.Update(user);
 

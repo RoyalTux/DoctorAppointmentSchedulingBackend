@@ -3,18 +3,10 @@ using System.Collections.Generic;
 
 namespace DoctorAppointmentScheduling.Domain.Interfaces
 {
-    public interface IBookingRepository
+    public interface IBookingRepository : IBaseRepository<Booking>
     {
-        int Add(Booking newBooking);
+        IEnumerable<Booking> GetByDoctor(int Id);
 
-        Booking GetById(int id);
-
-        IEnumerable<Booking> GetByDoctor(int DoctorId);
-
-        IEnumerable<Booking> GetByUser(int UserId);
-
-        void Delete(int Id);
-
-        void Update(Booking newBooking);
+        IEnumerable<Booking> GetByPatient(int Id);
     }
 }

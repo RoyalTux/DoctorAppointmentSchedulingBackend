@@ -14,7 +14,7 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
             _context = context;
         }
 
-        public int Add(domain.User newUser)
+        public int Add(domain.Patient newUser)
         {
             var entity = new User
             {
@@ -49,13 +49,13 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
             _context.SaveChanges();
         }
 
-        public domain.User Get(int Id)
+        public domain.Patient Get(int Id)
         {
             var entity = _context.Users.Find(Id);
 
-            return new domain.User
+            return new domain.Patient
             {
-                UserId = entity.UserId,
+                PatientId = entity.UserId,
                 UserName = entity.UserName,
                 PassWord = entity.PassWord,
                 FirstName = entity.FirstName,
@@ -67,9 +67,9 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
             };
         }
 
-        public int Update(domain.User newUser)
+        public int Update(domain.Patient newUser)
         {
-            var entity = _context.Users.Find(newUser.UserId);
+            var entity = _context.Users.Find(newUser.PatientId);
 
             entity.FirstName = newUser.FirstName;
             entity.LastName = newUser.LastName;

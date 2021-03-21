@@ -20,7 +20,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         public IActionResult Post([FromBody] Review review)
         {
             var newReviewID = _reviewRepository.Add(review);
-            var newReview = _reviewRepository.GetReviews(newReviewID);
+            var newReview = _reviewRepository.Get(newReviewID);
 
             return Created($"api/<ReviewController>/{newReviewID}", newReview);
         }
@@ -28,7 +28,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         [HttpGet("doctor/{id}")]
         public IActionResult GetDoctorReviews(int id)
         {
-            var reviews = _reviewRepository.GetReviews(id);
+            var reviews = _reviewRepository.Get(id);
 
             if(reviews != null)
             {

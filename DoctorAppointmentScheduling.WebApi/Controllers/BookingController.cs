@@ -19,7 +19,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         [HttpGet("{id}")]
         public IActionResult getById(int id)
         {
-            var booking = _bookingRepository.GetById(id);
+            var booking = _bookingRepository.Get(id);
 
             if (booking != null)
             {
@@ -35,7 +35,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         public IActionResult CreateBooking([FromBody] Booking booking)
         {
             int BookingId = _bookingRepository.Add(booking);
-            var result = _bookingRepository.GetById(BookingId);
+            var result = _bookingRepository.Get(BookingId);
 
             return CreatedAtAction(nameof(getById), new { id = BookingId }, result);
         }

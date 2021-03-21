@@ -1,17 +1,10 @@
-﻿using DoctorAppointmentScheduling.Domain.Models;
+﻿using DoctorAppointmentScheduling.Domain.Enums;
+using DoctorAppointmentScheduling.Domain.Models;
 
 namespace DoctorAppointmentScheduling.Domain.Interfaces
 {
-    public interface IDoctorRepository
+    public interface IDoctorRepository : IBaseRepository<Doctor>
     {
-        int Add(Doctor newDoctor);
-
-        Doctor Get(int id);
-
-        void Update(Doctor newDoctor);
-
-        void Delete(int newDoctor);
-
-        double GetRating(int DoctorId);
+        Rating GetRating(int Id);
     }
 }

@@ -77,7 +77,7 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
             });
         }
 
-        public domain.Booking GetById(int BookingId)
+        public domain.Booking Get(int BookingId)
         {
             var entity = _context.Bookings.Find(BookingId);
 
