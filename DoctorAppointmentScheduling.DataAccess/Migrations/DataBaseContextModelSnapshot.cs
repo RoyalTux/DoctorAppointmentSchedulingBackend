@@ -19,38 +19,44 @@ namespace DoctorAppointmentScheduling.DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.2");
 
-            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.Booking", b =>
+            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.AppointmentDataEntity", b =>
                 {
-                    b.Property<int>("BookingId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Description")
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<int?>("DoctorDataEntityId")
+                        .HasColumnType("int");
+
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("PatientDataEntityId")
                         .HasColumnType("int");
 
-                    b.HasKey("BookingId");
+                    b.Property<int>("PatientId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("DoctorId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("DoctorDataEntityId");
+
+                    b.HasIndex("PatientDataEntityId");
 
                     b.ToTable("Bookings");
                 });
 
-            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.Doctor", b =>
+            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.DoctorDataEntity", b =>
                 {
-                    b.Property<int>("DoctorId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
@@ -70,12 +76,6 @@ namespace DoctorAppointmentScheduling.DataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("DoctorType")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("doctorType");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -94,68 +94,30 @@ namespace DoctorAppointmentScheduling.DataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("PassWord")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("password");
-
-                    b.Property<double?>("Payment")
-                        .HasColumnType("float");
-
                     b.Property<string>("Phone")
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.Property<double?>("Rating")
-                        .HasColumnType("float");
+                    b.Property<int?>("Rating")
+                        .HasColumnType("int");
 
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("username");
-
-                    b.HasKey("DoctorId");
+                    b.HasKey("Id");
 
                     b.ToTable("Doctors");
                 });
 
-            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.Review", b =>
+            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.PatientDataEntity", b =>
                 {
-                    b.Property<int>("ReviewId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Review");
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DoctorId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Rating")
-                        .HasMaxLength(5)
-                        .HasColumnType("float");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int")
-                        .HasColumnName("userId");
-
-                    b.HasKey("ReviewId");
-
-                    b.ToTable("Reviews");
-                });
-
-            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.User", b =>
-                {
-                    b.Property<int>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("Bio")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
                         .IsRequired()
@@ -182,48 +144,94 @@ namespace DoctorAppointmentScheduling.DataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("PassWord")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("password");
-
                     b.Property<string>("Phone")
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("username");
+                    b.HasKey("Id");
 
-                    b.HasKey("UserId");
-
-                    b.ToTable("Users");
+                    b.ToTable("Patients");
                 });
 
-            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.Booking", b =>
+            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.ReviewDataEntity", b =>
                 {
-                    b.HasOne("DoctorAppointmentScheduling.DataAccess.Models.Doctor", null)
-                        .WithMany("Appointments")
-                        .HasForeignKey("DoctorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
-                    b.HasOne("DoctorAppointmentScheduling.DataAccess.Models.User", null)
-                        .WithMany("Appointments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Review");
+
+                    b.Property<int>("DoctorId")
+                        .HasColumnType("int")
+                        .HasColumnName("doctorId");
+
+                    b.Property<int>("PatientId")
+                        .HasColumnType("int")
+                        .HasColumnName("patientId");
+
+                    b.Property<int>("Rating")
+                        .HasMaxLength(5)
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Reviews");
                 });
 
-            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.Doctor", b =>
+            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.SpecialzationDataEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DoctorDataEntityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorDataEntityId");
+
+                    b.ToTable("SpecialzationDataEntity");
+                });
+
+            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.AppointmentDataEntity", b =>
+                {
+                    b.HasOne("DoctorAppointmentScheduling.DataAccess.Models.DoctorDataEntity", null)
+                        .WithMany("Appointments")
+                        .HasForeignKey("DoctorDataEntityId");
+
+                    b.HasOne("DoctorAppointmentScheduling.DataAccess.Models.PatientDataEntity", null)
+                        .WithMany("Appointments")
+                        .HasForeignKey("PatientDataEntityId");
+                });
+
+            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.SpecialzationDataEntity", b =>
+                {
+                    b.HasOne("DoctorAppointmentScheduling.DataAccess.Models.DoctorDataEntity", null)
+                        .WithMany("Specializations")
+                        .HasForeignKey("DoctorDataEntityId");
+                });
+
+            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.DoctorDataEntity", b =>
                 {
                     b.Navigation("Appointments");
+
+                    b.Navigation("Specializations");
                 });
 
-            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.User", b =>
+            modelBuilder.Entity("DoctorAppointmentScheduling.DataAccess.Models.PatientDataEntity", b =>
                 {
                     b.Navigation("Appointments");
                 });

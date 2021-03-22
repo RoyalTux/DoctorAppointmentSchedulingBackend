@@ -70,7 +70,7 @@ namespace DoctorAppointmentScheduling
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseContext context)
         {
             context.Database.EnsureCreated();
-            //context.Database.EnsureDeleted();
+            // context.Database.EnsureDeleted();
 
             if (env.IsDevelopment())
             {
