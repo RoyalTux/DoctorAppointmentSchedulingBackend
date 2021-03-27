@@ -1,5 +1,5 @@
-﻿using DoctorAppointmentScheduling.Domain.Extensibility.Entities;
-using DoctorAppointmentScheduling.Domain.Extensibility.Enums;
+﻿using DoctorAppointmentScheduling.Domain.Entities;
+using DoctorAppointmentScheduling.Domain.Enums;
 using DoctorAppointmentScheduling.Domain.Repository;
 using Microsoft.AspNetCore.Mvc;
 

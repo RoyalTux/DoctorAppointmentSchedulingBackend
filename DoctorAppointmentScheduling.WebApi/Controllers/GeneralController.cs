@@ -1,5 +1,5 @@
-﻿using DoctorAppointmentScheduling.Domain.Extensibility;
-using DoctorAppointmentScheduling.Domain.Extensibility.Repository;
+﻿using DoctorAppointmentScheduling.Domain;
+using DoctorAppointmentScheduling.Domain.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;

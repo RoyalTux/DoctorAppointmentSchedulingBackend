@@ -1,7 +1,7 @@
-﻿using DoctorAppointmentScheduling.Domain.Extensibility.Entities;
+﻿using DoctorAppointmentScheduling.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace DoctorAppointmentScheduling.DataAccess.Context
+namespace DoctorAppointmentScheduling.Domain.Context
 {
     public interface IDataBaseContext
     {

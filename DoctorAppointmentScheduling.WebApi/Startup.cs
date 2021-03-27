@@ -1,6 +1,5 @@
-using DoctorAppointmentScheduling.Domain;
-using DoctorAppointmentScheduling.Domain.Extensibility.Entities;
-using DoctorAppointmentScheduling.Domain.Extensibility.Repository;
+using DoctorAppointmentScheduling.Domain.Context;
+using DoctorAppointmentScheduling.Domain.Entities;
 using DoctorAppointmentScheduling.Domain.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -52,6 +51,9 @@ namespace DoctorAppointmentScheduling
                 options.UseSqlServer(connectionString));
 
             services.AddScoped<DoctorsRepository>();
+            services.AddScoped<RepositoryBase<Appointment, DataBaseContext>>();
+            services.AddScoped<RepositoryBase<Patient, DataBaseContext>>();
+            services.AddScoped<RepositoryBase<Review, DataBaseContext>>();
 
             services.AddControllers();
 

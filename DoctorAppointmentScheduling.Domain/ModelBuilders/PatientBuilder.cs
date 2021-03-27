@@ -1,4 +1,4 @@
-﻿using DoctorAppointmentScheduling.Domain.Extensibility.Entities;
+﻿using DoctorAppointmentScheduling.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DoctorAppointmentScheduling.Domain.ModelBuilders

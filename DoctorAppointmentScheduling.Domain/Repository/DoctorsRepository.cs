@@ -1,6 +1,7 @@
 ﻿using System.Linq;
-using DoctorAppointmentScheduling.Domain.Extensibility.Enums;
-using DoctorAppointmentScheduling.Domain.Extensibility.Entities;
+using DoctorAppointmentScheduling.Domain.Enums;
+using DoctorAppointmentScheduling.Domain.Entities;
+using DoctorAppointmentScheduling.Domain.Context;
 using System.Collections.Generic;
 
 namespace DoctorAppointmentScheduling.Domain.Repository

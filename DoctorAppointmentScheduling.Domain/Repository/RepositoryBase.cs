@@ -1,6 +1,4 @@
-﻿using DoctorAppointmentScheduling.Domain.Extensibility;
-using DoctorAppointmentScheduling.Domain.Extensibility.Repository;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

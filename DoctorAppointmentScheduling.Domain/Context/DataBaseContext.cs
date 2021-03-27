@@ -1,9 +1,8 @@
-﻿using DoctorAppointmentScheduling.DataAccess.Context;
-using DoctorAppointmentScheduling.Domain.Extensibility.Entities;
+﻿using DoctorAppointmentScheduling.Domain.Entities;
 using DoctorAppointmentScheduling.Domain.ModelBuilders;
 using Microsoft.EntityFrameworkCore;
 
-namespace DoctorAppointmentScheduling.Domain
+namespace DoctorAppointmentScheduling.Domain.Context
 {
     public class DataBaseContext : DbContext, IDataBaseContext
     {
