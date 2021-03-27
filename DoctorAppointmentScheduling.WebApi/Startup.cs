@@ -52,8 +52,8 @@ namespace DoctorAppointmentScheduling
 
             services.AddScoped<DoctorsRepository>();
             services.AddScoped<RepositoryBase<Patient, DataBaseContext>>();
-            // services.AddScoped<RepositoryBase<Appointment, DataBaseContext>>();
-            // services.AddScoped<RepositoryBase<Review, DataBaseContext>>();
+            services.AddScoped<RepositoryBase<Appointment, DataBaseContext>>();
+            services.AddScoped<RepositoryBase<Review, DataBaseContext>>();
 
             services.AddControllers();
 
