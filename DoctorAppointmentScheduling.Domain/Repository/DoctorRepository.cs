@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 namespace DoctorAppointmentScheduling.Domain.Repository
 {
-    public class DoctorsRepository : RepositoryBase<Doctor, DataBaseContext>
+    public class DoctorRepository : RepositoryBase<Doctor, DataBaseContext>
     {
         private readonly DataBaseContext _context;
 
-        public DoctorsRepository(DataBaseContext context) : base(context)
+        public DoctorRepository(DataBaseContext context) : base(context)
         {
             _context = context;
         }
