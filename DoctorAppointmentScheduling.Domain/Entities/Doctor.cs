@@ -12,9 +12,6 @@ namespace DoctorAppointmentScheduling.Domain.Entities
         public int ExperienceYears { get; set; }
 
         [Required]
-        public List<Specialzation> Specializations = new List<Specialzation>();
-
-        [Required]
         public Rating? Rating { get; set; }
     }
 }

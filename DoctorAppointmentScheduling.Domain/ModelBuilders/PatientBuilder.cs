@@ -17,7 +17,7 @@ namespace DoctorAppointmentScheduling.Domain.ModelBuilders
 
                 entity.Property(e => e.Email)
                     .IsRequired()
-                    .HasMaxLength(100);
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.FirstName)
                     .IsRequired()
@@ -27,7 +27,11 @@ namespace DoctorAppointmentScheduling.Domain.ModelBuilders
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Phone).HasMaxLength(15);
+                entity.Property(e => e.Address)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Phone).HasMaxLength(20);
 
                 entity.Property(e => e.Country)
                     .IsRequired()

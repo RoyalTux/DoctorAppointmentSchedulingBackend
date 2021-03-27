@@ -13,7 +13,7 @@ namespace DoctorAppointmentScheduling.Domain.ModelBuilders
 
                 entity.Property(e => e.DateTime).HasColumnType("datetime");
 
-                entity.Property(e => e.Description).HasMaxLength(200);
+                entity.Property(e => e.Description).HasMaxLength(500);
             });
         }
     }

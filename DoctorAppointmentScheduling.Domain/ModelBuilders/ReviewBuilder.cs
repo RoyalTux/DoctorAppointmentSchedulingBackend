@@ -13,7 +13,7 @@ namespace DoctorAppointmentScheduling.Domain.ModelBuilders
 
                 entity.Property(e => e.Description)
                     .IsRequired()
-                    .HasMaxLength(255)
+                    .HasMaxLength(500)
                     .HasColumnName("Review");
 
                 entity.Property(e => e.Rating).HasMaxLength(5);

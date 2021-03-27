@@ -17,7 +17,7 @@ namespace DoctorAppointmentScheduling.Domain.Entities
         public Rating Rating { get; set; }
 
         [Required]
-        [StringLength(100, MinimumLength = 1)]
+        [StringLength(500, MinimumLength = 1)]
         public string Description { get; set; }
     }
 }

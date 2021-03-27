@@ -14,7 +14,7 @@ namespace DoctorAppointmentScheduling.Domain.Entities
         public int PatientId { get; set; }
 
         [Required]
-        [StringLength(100, MinimumLength = 3)]
+        [StringLength(500, MinimumLength = 3)]
         public string Description { get; set; }
 
         [Required]
