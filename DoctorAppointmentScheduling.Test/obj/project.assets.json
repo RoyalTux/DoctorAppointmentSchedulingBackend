@@ -5606,23 +5606,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\d.shchebetovskyi\\.nuget\\packages\\": {},
+    "C:\\Users\\Dmitriy\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\d.shchebetovskyi\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Test\\DoctorAppointmentScheduling.Test.csproj",
+      "projectUniqueName": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Test\\DoctorAppointmentScheduling.Test.csproj",
       "projectName": "DoctorAppointmentScheduling.Test",
-      "projectPath": "C:\\Users\\d.shchebetovskyi\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Test\\DoctorAppointmentScheduling.Test.csproj",
-      "packagesPath": "C:\\Users\\d.shchebetovskyi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\d.shchebetovskyi\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Test\\obj\\",
+      "projectPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Test\\DoctorAppointmentScheduling.Test.csproj",
+      "packagesPath": "C:\\Users\\Dmitriy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\d.shchebetovskyi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dmitriy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

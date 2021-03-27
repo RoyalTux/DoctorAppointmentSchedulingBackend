@@ -1,62 +1,78 @@
-﻿using DoctorAppointmentScheduling.Domain.Interfaces;
-using DoctorAppointmentScheduling.Domain.Models;
+﻿using DoctorAppointmentScheduling.Domain;
+using DoctorAppointmentScheduling.Domain.Extensibility.Entities;
+using DoctorAppointmentScheduling.Domain.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorAppointmentScheduling.WebAPi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PatientController : ControllerBase
+    public class PatientController : GeneralController<Doctor, RepositoryBase<Doctor, DataBaseContext>>
     {
-        private readonly IBaseRepository<Patient> _patientRepository;
-
-        public PatientController(IBaseRepository<Patient> patientRepository)
+        public PatientController(RepositoryBase<Doctor, DataBaseContext> repository) : base(repository)
         {
-            _patientRepository = patientRepository;
-        }
-
-        // GET api/<UserController>/5
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var patient = _patientRepository.Get(id);
-
-            if(patient != null)
-            {
-                return Ok(patient);
-            }
-            else
-            {
-                return NotFound();
-            }
-        }
-
-        // POST api/<UserController>
-        [HttpPost]
-        public IActionResult Post([FromBody] Patient patient)
-        {
-            var newPatientId = _patientRepository.Add(patient);
-            var newPatient = _patientRepository.Get(newPatientId);
-
-            return Created($"api/<PatientController>/{newPatientId}", newPatient);
-        }
-
-        // PUT api/<UserController>
-        [HttpPut()]
-        public IActionResult Put([FromBody] Patient patient)
-        {
-            _patientRepository.Update(patient);
-
-            return Ok();
-        }
-
-        // DELETE api/<UserController>/5
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            _patientRepository.Delete(id);
-
-            return Ok();
         }
     }
 }
+
+
+//using Microsoft.AspNetCore.Mvc;
+
+//namespace DoctorAppointmentScheduling.WebAPi.Controllers
+//{
+//    [Route("api/[controller]")]
+//    [ApiController]
+//    public class PatientController : ControllerBase
+//    {
+//        private readonly IBaseRepository<Patient> _patientRepository;
+
+//        public PatientController(IBaseRepository<Patient> patientRepository)
+//        {
+//            _patientRepository = patientRepository;
+//        }
+
+//        // GET api/<UserController>/5
+//        [HttpGet("{id}")]
+//        public IActionResult Get(int id)
+//        {
+//            var patient = _patientRepository.Get(id);
+
+//            if(patient != null)
+//            {
+//                return Ok(patient);
+//            }
+//            else
+//            {
+//                return NotFound();
+//            }
+//        }
+
+//        // POST api/<UserController>
+//        [HttpPost]
+//        public IActionResult Post([FromBody] Patient patient)
+//        {
+//            var newPatientId = _patientRepository.Add(patient);
+//            var newPatient = _patientRepository.Get(newPatientId);
+
+//            return Created($"api/<PatientController>/{newPatientId}", newPatient);
+//        }
+
+//        // PUT api/<UserController>
+//        [HttpPut()]
+//        public IActionResult Put([FromBody] Patient patient)
+//        {
+//            _patientRepository.Update(patient);
+
+//            return Ok();
+//        }
+
+//        // DELETE api/<UserController>/5
+//        [HttpDelete("{id}")]
+//        public IActionResult Delete(int id)
+//        {
+//            _patientRepository.Delete(id);
+
+//            return Ok();
+//        }
+//    }
+//}

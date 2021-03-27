@@ -1,59 +1,57 @@
-﻿using DoctorAppointmentScheduling.Domain.Interfaces;
-using DoctorAppointmentScheduling.Domain.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿//using Microsoft.AspNetCore.Mvc;
 
-namespace DoctorAppointmentScheduling.WebAPi.Controllers
-{
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ReviewController : ControllerBase
-    {
-        private readonly IReviewRepository _reviewRepository;
+//namespace DoctorAppointmentScheduling.WebAPi.Controllers
+//{
+//    [Route("api/[controller]")]
+//    [ApiController]
+//    public class ReviewController : ControllerBase
+//    {
+//        private readonly IReviewRepository _reviewRepository;
 
-        public ReviewController(IReviewRepository reviewRepository)
-        {
-            _reviewRepository = reviewRepository;
-        }
+//        public ReviewController(IReviewRepository reviewRepository)
+//        {
+//            _reviewRepository = reviewRepository;
+//        }
 
-        // POST api/<ReviewController>
-        [HttpPost]
-        public IActionResult Post([FromBody] Review review)
-        {
-            var newReviewID = _reviewRepository.Add(review);
-            var newReview = _reviewRepository.Get(newReviewID);
+//        // POST api/<ReviewController>
+//        [HttpPost]
+//        public IActionResult Post([FromBody] Review review)
+//        {
+//            var newReviewID = _reviewRepository.Add(review);
+//            var newReview = _reviewRepository.Get(newReviewID);
 
-            return Created($"api/<ReviewController>/{newReviewID}", newReview);
-        }
+//            return Created($"api/<ReviewController>/{newReviewID}", newReview);
+//        }
 
-        [HttpGet("doctor/{id}")]
-        public IActionResult GetDoctorReviews(int id)
-        {
-            var reviews = _reviewRepository.Get(id);
+//        [HttpGet("doctor/{id}")]
+//        public IActionResult GetDoctorReviews(int id)
+//        {
+//            var reviews = _reviewRepository.Get(id);
 
-            if(reviews != null)
-            {
-                return Ok(reviews);
-            }
-            else
-            {
-                return NotFound();
-            }
-        }
+//            if(reviews != null)
+//            {
+//                return Ok(reviews);
+//            }
+//            else
+//            {
+//                return NotFound();
+//            }
+//        }
 
-        [HttpPut()]
-        public IActionResult Update([FromBody] Review review)
-        {
-            _reviewRepository.Update(review);
+//        [HttpPut()]
+//        public IActionResult Update([FromBody] Review review)
+//        {
+//            _reviewRepository.Update(review);
 
-            return Ok();
-        }
+//            return Ok();
+//        }
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            _reviewRepository.Delete(id);
+//        [HttpDelete("{id}")]
+//        public IActionResult Delete(int id)
+//        {
+//            _reviewRepository.Delete(id);
 
-            return Ok();
-        }
-    }
-}
+//            return Ok();
+//        }
+//    }
+//}
