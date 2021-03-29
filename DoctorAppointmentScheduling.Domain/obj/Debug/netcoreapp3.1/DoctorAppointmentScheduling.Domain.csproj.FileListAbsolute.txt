@@ -19,9 +19,9 @@ C:\Users\d.shchebetovskyi\source\repos\DoctorAppointmentSchedulingBackend\Doctor
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\bin\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Domain.deps.json
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\bin\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Domain.dll
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\bin\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Domain.pdb
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Domain.csprojAssemblyReference.cache
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Domain.AssemblyInfoInputs.cache
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Domain.AssemblyInfo.cs
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Domain.csproj.CoreCompileInputs.cache
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Domain.dll
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Domain.pdb
-C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Domain.csprojAssemblyReference.cache
