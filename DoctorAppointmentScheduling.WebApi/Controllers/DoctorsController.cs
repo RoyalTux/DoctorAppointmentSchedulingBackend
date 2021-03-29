@@ -2,24 +2,25 @@
 using DoctorAppointmentScheduling.Domain.Enums;
 using DoctorAppointmentScheduling.Domain.Repository;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace DoctorAppointmentScheduling.WebAPi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DoctorsController : GeneralController<Doctor, DoctorsRepository>
+    public class DoctorsController : BaseController<Doctor, DoctorRepository>
     {
-        private readonly DoctorsRepository _doctorsRepository;
+        private readonly DoctorRepository _doctorsRepository;
 
-        public DoctorsController(DoctorsRepository doctorsRepository) : base(doctorsRepository)
+        public DoctorsController(DoctorRepository doctorsRepository) : base(doctorsRepository)
         {
             _doctorsRepository = doctorsRepository;
         }
 
         [HttpGet("Rating/{id}")]
-        public ActionResult<Rating> GetRating(int id)
+        public async Task<ActionResult<Rating>> GetRating(int id)
         {
-            var entity = _doctorsRepository.GetRating(id);
+            var entity = await _doctorsRepository.GetRating(id);
 
             return entity;
         }

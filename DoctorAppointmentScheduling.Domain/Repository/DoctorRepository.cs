@@ -3,6 +3,8 @@ using DoctorAppointmentScheduling.Domain.Enums;
 using DoctorAppointmentScheduling.Domain.Entities;
 using DoctorAppointmentScheduling.Domain.Context;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace DoctorAppointmentScheduling.Domain.Repository
 {
@@ -15,10 +17,10 @@ namespace DoctorAppointmentScheduling.Domain.Repository
             _context = context;
         }
 
-        public Rating GetRating(int id)
+        public async Task<Rating> GetRating(int id)
         {
-            IEnumerable<Review> reviews = _context.Reviews.Where(r => r.DoctorId == id);
-
+            IEnumerable<Review> reviews = await _context.Reviews.Where(r => r.DoctorId == id).ToListAsync();
+            
             int sum = 0;
             int count = 0;
 

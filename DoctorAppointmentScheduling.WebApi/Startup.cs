@@ -49,8 +49,8 @@ namespace DoctorAppointmentScheduling
 
             services.AddDbContext<DataBaseContext>(options =>
                 options.UseSqlServer(connectionString));
-
-            services.AddScoped<DoctorsRepository>();
+              
+            services.AddScoped<DoctorRepository>();
             services.AddScoped<RepositoryBase<Patient, DataBaseContext>>();
             services.AddScoped<RepositoryBase<Appointment, DataBaseContext>>();
             services.AddScoped<RepositoryBase<Review, DataBaseContext>>();

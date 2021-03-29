@@ -1,8 +1,9 @@
-﻿using DoctorAppointmentScheduling.DataAccess.Extensibility;
+﻿//using DoctorAppointmentScheduling.DataAccess.Extensibility;
 
-namespace DoctorAppointmentScheduling.DataAccess.Services
-{
-    public class DoctorService : IDoctorService
-    {
-    }
-}
+//namespace DoctorAppointmentScheduling.DataAccess.Services
+//{
+//    public class DoctorService : IDoctorService
+//    {
+
+//    }
+//}

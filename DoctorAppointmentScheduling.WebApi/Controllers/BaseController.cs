@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DoctorAppointmentScheduling.WebAPi.Controllers
 {
-    public class GeneralController<TDomainEntity, TRepository> : ControllerBase
+    public abstract class BaseController<TDomainEntity, TRepository> : ControllerBase
         where TDomainEntity : class, IEntity
         where TRepository : IRepositoryBase<TDomainEntity>
     {
         private readonly TRepository _repository;
 
-        public GeneralController(TRepository repository)
+        public BaseController(TRepository repository)
         {
             _repository = repository;
         }

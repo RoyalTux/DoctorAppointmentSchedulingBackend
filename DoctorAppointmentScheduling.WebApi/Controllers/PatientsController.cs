@@ -7,7 +7,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PatientsController : GeneralController<Patient, RepositoryBase<Patient, DataBaseContext>>
+    public class PatientsController : BaseController<Patient, RepositoryBase<Patient, DataBaseContext>>
     {
         public PatientsController(RepositoryBase<Patient, DataBaseContext> repository) : base(repository)
         {
