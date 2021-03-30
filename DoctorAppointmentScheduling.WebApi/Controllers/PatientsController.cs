@@ -1,6 +1,6 @@
-﻿using DoctorAppointmentScheduling.Domain.Context;
+﻿using DoctorAppointmentScheduling.DataAccess.Context;
+using DoctorAppointmentScheduling.DataAccess.Repository;
 using DoctorAppointmentScheduling.Domain.Entities;
-using DoctorAppointmentScheduling.Domain.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorAppointmentScheduling.WebAPi.Controllers

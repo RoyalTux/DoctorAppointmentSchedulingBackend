@@ -1,6 +1,6 @@
-﻿using DoctorAppointmentScheduling.Domain.Entities;
+﻿using DoctorAppointmentScheduling.DataAccess.Repository;
+using DoctorAppointmentScheduling.Domain.Entities;
 using DoctorAppointmentScheduling.Domain.Enums;
-using DoctorAppointmentScheduling.Domain.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 

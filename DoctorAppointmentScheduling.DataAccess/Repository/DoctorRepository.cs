@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 using DoctorAppointmentScheduling.Domain.Enums;
 using DoctorAppointmentScheduling.Domain.Entities;
-using DoctorAppointmentScheduling.Domain.Context;
+using DoctorAppointmentScheduling.DataAccess.Context;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
-namespace DoctorAppointmentScheduling.Domain.Repository
+namespace DoctorAppointmentScheduling.DataAccess.Repository
 {
     public class DoctorRepository : RepositoryBase<Doctor, DataBaseContext>
     {

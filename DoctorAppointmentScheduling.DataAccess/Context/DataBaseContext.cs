@@ -1,10 +1,10 @@
 ﻿using DoctorAppointmentScheduling.Domain.Entities;
-using DoctorAppointmentScheduling.Domain.ModelBuilders;
+using DoctorAppointmentScheduling.DataAccess.ModelBuilders;
 using Microsoft.EntityFrameworkCore;
 
-namespace DoctorAppointmentScheduling.Domain.Context
+namespace DoctorAppointmentScheduling.DataAccess.Context
 {
-    public class DataBaseContext : DbContext, IDataBaseContext
+    public class DataBaseContext : DbContext
     {
         public DataBaseContext() { }
 

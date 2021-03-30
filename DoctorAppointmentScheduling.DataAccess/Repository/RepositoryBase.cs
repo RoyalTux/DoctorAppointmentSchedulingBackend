@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DoctorAppointmentScheduling.Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DoctorAppointmentScheduling.Domain.Repository
+namespace DoctorAppointmentScheduling.DataAccess.Repository
 {
     public class RepositoryBase<TDomainEntity, TContext> : IRepositoryBase<TDomainEntity>
         where TDomainEntity : class, IEntity

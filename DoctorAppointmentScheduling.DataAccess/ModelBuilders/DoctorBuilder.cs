@@ -1,7 +1,7 @@
 ﻿using DoctorAppointmentScheduling.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace DoctorAppointmentScheduling.Domain.ModelBuilders
+namespace DoctorAppointmentScheduling.DataAccess.ModelBuilders
 {
     public class DoctorBuilder
     {

@@ -1,4 +1,4 @@
-﻿namespace DoctorAppointmentScheduling.Domain
+﻿namespace DoctorAppointmentScheduling.Domain.Interfaces
 {
     public interface IEntity
     {

@@ -184,6 +184,7 @@ C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointme
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Test\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Test\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Test.csprojAssemblyReference.cache
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Test\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Test.AssemblyInfoInputs.cache
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Test\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Test.AssemblyInfo.cs
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Test\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Test.csproj.CoreCompileInputs.cache
@@ -191,4 +192,3 @@ C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointme
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Test\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Test.dll
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Test\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Test.pdb
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Test\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Test.genruntimeconfig.cache
-C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Test\obj\Debug\netcoreapp3.1\DoctorAppointmentScheduling.Test.csprojAssemblyReference.cache

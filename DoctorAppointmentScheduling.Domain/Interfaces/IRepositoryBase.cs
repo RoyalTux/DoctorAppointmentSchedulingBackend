@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DoctorAppointmentScheduling.Domain.Repository
+namespace DoctorAppointmentScheduling.Domain.Interfaces
 {
     public interface IRepositoryBase<TDomainEntity>
         where TDomainEntity : class, IEntity

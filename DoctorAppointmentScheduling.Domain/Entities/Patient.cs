@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DoctorAppointmentScheduling.Domain.Interfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace DoctorAppointmentScheduling.Domain.Entities
 {
