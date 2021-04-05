@@ -1,4 +1,4 @@
-﻿using DoctorAppointmentScheduling.DataAccess.Models;
+﻿using DoctorAppointmentScheduling.DataAccess.Dtos;
 using Microsoft.EntityFrameworkCore;
 
 namespace DoctorAppointmentScheduling.DataAccess.ModelBuilders
@@ -7,13 +7,13 @@ namespace DoctorAppointmentScheduling.DataAccess.ModelBuilders
     {
         public static void BuildDoctor(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Doctor>(entity =>
+            modelBuilder.Entity<DoctorDto>(entity =>
             {
-                entity.HasKey(e => e.DoctorId);
+                entity.HasKey(e => e.Id);
 
                 entity.Property(e => e.Bio)
                     .IsRequired()
-                    .HasMaxLength(200);
+                    .HasMaxLength(300);
 
                 entity.Property(e => e.City)
                     .IsRequired()
@@ -21,7 +21,7 @@ namespace DoctorAppointmentScheduling.DataAccess.ModelBuilders
 
                 entity.Property(e => e.Email)
                     .IsRequired()
-                    .HasMaxLength(100);
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.FirstName)
                     .IsRequired()
@@ -31,26 +31,11 @@ namespace DoctorAppointmentScheduling.DataAccess.ModelBuilders
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.PassWord)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("password");
-
-                entity.Property(e => e.Phone).HasMaxLength(15);
+                entity.Property(e => e.Phone).HasMaxLength(20);
 
                 entity.Property(e => e.Country)
                     .IsRequired()
                     .HasMaxLength(50);
-
-                entity.Property(e => e.UserName)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("username");
-
-                entity.Property(e => e.DoctorType)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("doctorType");
 
                 entity.HasMany(e => e.Appointments);
             });

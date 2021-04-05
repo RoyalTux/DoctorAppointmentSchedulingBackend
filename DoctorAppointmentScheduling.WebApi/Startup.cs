@@ -1,6 +1,7 @@
-using DoctorAppointmentScheduling.DataAccess;
+using DoctorAppointmentScheduling.DataAccess.Context;
 using DoctorAppointmentScheduling.DataAccess.Repository;
-using DoctorAppointmentScheduling.Domain.Interfaces;
+using DoctorAppointmentScheduling.Domain.Entities;
+using DoctorAppointmentScheduling.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -49,11 +50,18 @@ namespace DoctorAppointmentScheduling
 
             services.AddDbContext<DataBaseContext>(options =>
                 options.UseSqlServer(connectionString));
+              
+            services.AddScoped<DoctorService>();
+            services.AddScoped<PatientService>();
+            services.AddScoped<AppointmentService>();
+            services.AddScoped<ReviewService>();
 
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IReviewRepository, ReviewRepository>();
-            services.AddScoped<IDoctorRepository, DoctorRepository>();
-            services.AddScoped<IBookingRepository, BookingRepository>();
+            services.AddScoped<DoctorRepository>();
+            services.AddScoped<PatientRepository>();
+            services.AddScoped<AppointmentRepository>();
+            services.AddScoped<ReviewRepository>();
+
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddControllers();
 
@@ -69,7 +77,7 @@ namespace DoctorAppointmentScheduling
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseContext context)
         {
             context.Database.EnsureCreated();
-            //context.Database.EnsureDeleted();
+            // context.Database.EnsureDeleted();
 
             if (env.IsDevelopment())
             {

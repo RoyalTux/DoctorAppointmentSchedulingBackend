@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.DataAccess\\DoctorAppointmentScheduling.DataAccess.csproj": {}
+    "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.DataAccess\\DoctorAppointmentScheduling.DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.DataAccess\\DoctorAppointmentScheduling.DataAccess.csproj": {
+    "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.DataAccess\\DoctorAppointmentScheduling.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.DataAccess\\DoctorAppointmentScheduling.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.DataAccess\\DoctorAppointmentScheduling.DataAccess.csproj",
         "projectName": "DoctorAppointmentScheduling.DataAccess",
-        "projectPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.DataAccess\\DoctorAppointmentScheduling.DataAccess.csproj",
+        "projectPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.DataAccess\\DoctorAppointmentScheduling.DataAccess.csproj",
         "packagesPath": "C:\\Users\\Dmitriy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\Dmitriy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -33,8 +32,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj": {
-                "projectPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj"
+              "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj": {
+                "projectPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj"
               }
             }
           }
@@ -49,19 +48,23 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.4, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.4, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[5.0.4, )"
             }
           },
           "imports": [
@@ -79,27 +82,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj": {
+    "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj",
         "projectName": "DoctorAppointmentScheduling.Domain",
-        "projectPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj",
+        "projectPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj",
         "packagesPath": "C:\\Users\\Dmitriy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentScheduling\\Backend\\DoctorAppointmentScheduling.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\Dmitriy\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -138,7 +140,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
