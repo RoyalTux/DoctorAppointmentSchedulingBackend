@@ -1,72 +1,89 @@
-﻿using DoctorAppointmentScheduling.Domain.Interfaces;
+﻿using AutoMapper;
+using DoctorAppointmentScheduling.Domain.Interfaces;
+using DoctorAppointmentScheduling.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace DoctorAppointmentScheduling.WebAPi.Controllers
 {
-    public abstract class BaseController<TDomainEntity, TRepository> : ControllerBase
-        where TDomainEntity : class, IEntity
-        where TRepository : IRepositoryBase<TDomainEntity>
+    public abstract class BaseController<TViewModel, TDomainModel, TService> : ControllerBase
+        where TViewModel : class, IEntity
+        where TDomainModel : class, IEntity
+        where TService : IService<TDomainModel>
     {
-        private readonly TRepository _repository;
+        private readonly TService _service;
+        private readonly IMapper _mapper;
 
-        public BaseController(TRepository repository)
+        public BaseController(TService service, IMapper mapper)
         {
-            _repository = repository;
+            _service = service;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TDomainEntity>>> Get()
+        public async Task<ActionResult<IEnumerable<TViewModel>>> Get()
         {
-            return await _repository.GetAll();
+            List<TDomainModel> domainEntities = await _service.GetAll();
+
+            List<TViewModel> viewModels = _mapper.Map<List<TViewModel>>(domainEntities);
+
+            return viewModels;
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<TDomainEntity>> Get(int id)
+        public async Task<ActionResult<TViewModel>> Get(int id)
         {
-            var entity = await _repository.GetById(id);
+            TDomainModel domainEntity = await _service.GetById(id);
 
-            if (entity == null)
+            TViewModel viewModel = _mapper.Map<TViewModel>(domainEntity);
+
+            if (viewModel == null)
             {
                 return NotFound();
             }
 
-            return entity;
+            return viewModel;
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, TDomainEntity entity)
+        public async Task<IActionResult> Put(int id, TViewModel viewModel)
         {
-            if (id != entity.Id)
+            if (id != viewModel.Id)
             {
                 return BadRequest();
             }
 
-            await _repository.Update(entity);
+            TDomainModel domainEntity = _mapper.Map<TDomainModel>(viewModel);
+
+            await _service.Update(domainEntity);
 
             return NoContent();
         }
 
         [HttpPost]
-        public async Task<ActionResult<TDomainEntity>> Post(TDomainEntity entity)
+        public async Task<ActionResult<TViewModel>> Post(TViewModel viewModel)
         {
-            await _repository.Add(entity);
+            TDomainModel domainModel = _mapper.Map<TDomainModel>(viewModel);
 
-            return CreatedAtAction("Get", new { id = entity.Id }, entity);
+            await _service.Add(domainModel);
+
+            return CreatedAtAction("Get", new { id = viewModel.Id }, viewModel);
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<TDomainEntity>> Delete(int id)
+        public async Task<ActionResult<TViewModel>> Delete(int id)
         {
-            var entity = await _repository.Delete(id);
+            TDomainModel domainModel = await _service.Delete(id);
 
-            if (entity == null)
+            if (domainModel == null)
             {
                 return NotFound();
             }
 
-            return entity;
+            TViewModel viewModel = _mapper.Map<TViewModel>(domainModel);
+
+            return viewModel;
         }
     }
 }

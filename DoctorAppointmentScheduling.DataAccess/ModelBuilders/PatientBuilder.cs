@@ -1,4 +1,4 @@
-﻿using DoctorAppointmentScheduling.Domain.Entities;
+﻿using DoctorAppointmentScheduling.DataAccess.Dtos;
 using Microsoft.EntityFrameworkCore;
 
 namespace DoctorAppointmentScheduling.DataAccess.ModelBuilders
@@ -7,7 +7,7 @@ namespace DoctorAppointmentScheduling.DataAccess.ModelBuilders
     {
         public static void BuildPatient(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Patient>(entity =>
+            modelBuilder.Entity<PatientDto>(entity =>
             {
                 entity.HasKey(e => e.Id);
 

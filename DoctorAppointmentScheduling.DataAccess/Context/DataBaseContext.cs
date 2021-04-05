@@ -1,4 +1,4 @@
-﻿using DoctorAppointmentScheduling.Domain.Entities;
+﻿using DoctorAppointmentScheduling.DataAccess.Dtos;
 using DoctorAppointmentScheduling.DataAccess.ModelBuilders;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,13 +13,13 @@ namespace DoctorAppointmentScheduling.DataAccess.Context
         {
         }
 
-        public virtual DbSet<Appointment> Bookings { get; set; }
+        public virtual DbSet<AppointmentDto> Bookings { get; set; }
 
-        public virtual DbSet<Doctor> Doctors { get; set; }
+        public virtual DbSet<DoctorDto> Doctors { get; set; }
 
-        public virtual DbSet<Patient> Patients { get; set; }
+        public virtual DbSet<PatientDto> Patients { get; set; }
 
-        public virtual DbSet<Review> Reviews { get; set; }
+        public virtual DbSet<ReviewDto> Reviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

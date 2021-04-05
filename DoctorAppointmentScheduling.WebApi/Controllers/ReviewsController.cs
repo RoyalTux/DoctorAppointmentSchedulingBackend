@@ -1,15 +1,16 @@
-﻿using DoctorAppointmentScheduling.DataAccess.Context;
-using DoctorAppointmentScheduling.DataAccess.Repository;
+﻿using AutoMapper;
 using DoctorAppointmentScheduling.Domain.Entities;
+using DoctorAppointmentScheduling.Service.Services;
+using DoctorAppointmentScheduling.WebAPi.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorAppointmentScheduling.WebAPi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ReviewsController : BaseController<Review, RepositoryBase<Review, DataBaseContext>>
+    public class ReviewsController : BaseController<ReviewViewModel, Review, ReviewService>
     {
-        public ReviewsController(RepositoryBase<Review, DataBaseContext> repository) : base(repository)
+        public ReviewsController(ReviewService service, IMapper mapper) : base(service, mapper)
         {
         }
     }

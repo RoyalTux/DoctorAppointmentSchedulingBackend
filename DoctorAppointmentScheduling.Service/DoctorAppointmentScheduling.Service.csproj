@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DoctorAppointmentScheduling.DataAccess\DoctorAppointmentScheduling.DataAccess.csproj" />
     <ProjectReference Include="..\DoctorAppointmentScheduling.Domain\DoctorAppointmentScheduling.Domain.csproj" />
   </ItemGroup>
 

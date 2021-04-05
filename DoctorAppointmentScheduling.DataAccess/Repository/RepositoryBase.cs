@@ -1,34 +1,48 @@
-﻿using DoctorAppointmentScheduling.Domain.Interfaces;
+﻿using AutoMapper;
+using DoctorAppointmentScheduling.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace DoctorAppointmentScheduling.DataAccess.Repository
 {
-    public class RepositoryBase<TDomainEntity, TContext> : IRepositoryBase<TDomainEntity>
+    public abstract class RepositoryBase<TDomainEntity, TDtoEntity, TContext> : IRepositoryBase<TDomainEntity>
         where TDomainEntity : class, IEntity
+        where TDtoEntity : class, IEntity
         where TContext : DbContext
     {
         private readonly TContext _context;
+        private readonly IMapper _mapper;
 
-        public RepositoryBase(TContext context)
+        public RepositoryBase(TContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<List<TDomainEntity>> GetAll()
         {
-            return await _context.Set<TDomainEntity>().ToListAsync();
+            List<TDtoEntity> dtoEntities = await _context.Set<TDtoEntity>().ToListAsync();
+
+            List<TDomainEntity> entites = _mapper.Map<List<TDomainEntity>>(dtoEntities);
+
+            return entites;
         }
 
         public async Task<TDomainEntity> GetById(int id)
         {
-            return await _context.Set<TDomainEntity>().FindAsync(id);
+            TDtoEntity dtoEntity = await _context.Set<TDtoEntity>().FindAsync(id);
+
+            TDomainEntity entity = _mapper.Map<TDomainEntity>(dtoEntity);
+
+            return entity;
         }
 
         public async Task<TDomainEntity> Add(TDomainEntity entity)
         {
-            _context.Set<TDomainEntity>().Add(entity);
+            TDtoEntity dtoEntity = _mapper.Map<TDtoEntity>(entity);
+
+            _context.Set<TDtoEntity>().Add(dtoEntity);
             await _context.SaveChangesAsync();
 
             return entity;
@@ -36,7 +50,9 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
 
         public async Task<TDomainEntity> Update(TDomainEntity entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
+            TDtoEntity dtoEntity = _mapper.Map<TDtoEntity>(entity);
+
+            _context.Entry(dtoEntity).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return entity;
@@ -44,14 +60,16 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
 
         public async Task<TDomainEntity> Delete(int id)
         {
-            var entity = await _context.Set<TDomainEntity>().FindAsync(id);
+            TDtoEntity dtoEntity = await _context.Set<TDtoEntity>().FindAsync(id);
 
-            if (entity == null)
+            TDomainEntity entity = _mapper.Map<TDomainEntity>(dtoEntity);
+
+            if (dtoEntity == null)
             {
                 return entity;
             }
 
-            _context.Set<TDomainEntity>().Remove(entity);
+            _context.Set<TDtoEntity>().Remove(dtoEntity);
             await _context.SaveChangesAsync();
 
             return entity;

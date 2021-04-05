@@ -1,6 +1,7 @@
 using DoctorAppointmentScheduling.DataAccess.Context;
 using DoctorAppointmentScheduling.DataAccess.Repository;
 using DoctorAppointmentScheduling.Domain.Entities;
+using DoctorAppointmentScheduling.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -50,10 +51,17 @@ namespace DoctorAppointmentScheduling
             services.AddDbContext<DataBaseContext>(options =>
                 options.UseSqlServer(connectionString));
               
+            services.AddScoped<DoctorService>();
+            services.AddScoped<PatientService>();
+            services.AddScoped<AppointmentService>();
+            services.AddScoped<ReviewService>();
+
             services.AddScoped<DoctorRepository>();
-            services.AddScoped<RepositoryBase<Patient, DataBaseContext>>();
-            services.AddScoped<RepositoryBase<Appointment, DataBaseContext>>();
-            services.AddScoped<RepositoryBase<Review, DataBaseContext>>();
+            services.AddScoped<PatientRepository>();
+            services.AddScoped<AppointmentRepository>();
+            services.AddScoped<ReviewRepository>();
+
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddControllers();
 
