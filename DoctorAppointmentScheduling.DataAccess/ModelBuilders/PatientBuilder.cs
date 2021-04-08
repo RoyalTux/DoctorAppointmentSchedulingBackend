@@ -31,7 +31,7 @@ namespace DoctorAppointmentScheduling.DataAccess.ModelBuilders
                     .IsRequired()
                     .HasMaxLength(100);
 
-                entity.Property(e => e.Phone).HasMaxLength(20);
+                entity.Property(e => e.PhoneNumber).HasMaxLength(20);
 
                 entity.Property(e => e.Country)
                     .IsRequired()

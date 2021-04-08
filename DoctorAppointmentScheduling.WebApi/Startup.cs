@@ -1,8 +1,10 @@
 using DoctorAppointmentScheduling.DataAccess.Context;
 using DoctorAppointmentScheduling.DataAccess.Repository;
+using DoctorAppointmentScheduling.Domain.Entities;
 using DoctorAppointmentScheduling.Service.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -62,6 +64,9 @@ namespace DoctorAppointmentScheduling
             services.AddScoped<ReviewRepository>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddIdentity<User, IdentityRole>()
+                    .AddEntityFrameworkStores<DataBaseContext>();
 
             services.AddControllers();
 

@@ -1,10 +1,12 @@
 ﻿using DoctorAppointmentScheduling.DataAccess.Dtos;
 using DoctorAppointmentScheduling.DataAccess.ModelBuilders;
+using DoctorAppointmentScheduling.Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace DoctorAppointmentScheduling.DataAccess.Context
 {
-    public class DataBaseContext : DbContext
+    public class DataBaseContext : IdentityDbContext<User>
     {
         public DataBaseContext() { }
 
