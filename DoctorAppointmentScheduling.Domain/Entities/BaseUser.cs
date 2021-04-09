@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace DoctorAppointmentScheduling.DataAccess.Dtos
+namespace DoctorAppointmentScheduling.Domain.Entities
 {
-    public class UserDto
+    public class BaseUser
     {
         public string FirstName { get; set; }
 
@@ -16,8 +16,6 @@ namespace DoctorAppointmentScheduling.DataAccess.Dtos
 
         public string Bio { get; set; }
 
-        public string Phone { get; set; }
-
-        public List<AppointmentDto> Appointments = new List<AppointmentDto>();
+        public List<Appointment> Appointments = new List<Appointment>();
     }
 }

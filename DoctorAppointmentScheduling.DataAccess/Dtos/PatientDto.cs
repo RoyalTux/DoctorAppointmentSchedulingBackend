@@ -2,7 +2,7 @@
 
 namespace DoctorAppointmentScheduling.DataAccess.Dtos
 {
-    public class PatientDto : UserDto, IEntity
+    public class PatientDto : BaseUserDto, IEntity
     {
         public int Id { get; set; }
 

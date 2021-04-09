@@ -2,7 +2,7 @@
 
 namespace DoctorAppointmentScheduling.Domain.Entities
 {
-    public class Patient : User, IEntity
+    public class Patient : BaseUser, IEntity
     {
         public int Id { get; set; }
 

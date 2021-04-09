@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DoctorAppointmentScheduling.WebAPi.ViewModels
 {
-    public class UserViewModel
+    public class BaseUserViewModel
     {
         [Required]
         [StringLength(50, MinimumLength = 1)]
@@ -12,11 +12,6 @@ namespace DoctorAppointmentScheduling.WebAPi.ViewModels
         [Required]
         [StringLength(50, MinimumLength = 1)]
         public string LastName { get; set; }
-
-        [Required]
-        [StringLength(50, MinimumLength = 1)]
-        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$")]
-        public string Email { get; set; }
 
         [Required]
         [StringLength(50, MinimumLength = 1)]
@@ -32,7 +27,7 @@ namespace DoctorAppointmentScheduling.WebAPi.ViewModels
 
         [Required]
         [StringLength(20, MinimumLength = 1)]
-        public string Phone { get; set; }
+        public string PhoneNumber { get; set; }
 
         [Required]
         public List<AppointmentViewModel> Appointments = new List<AppointmentViewModel>();

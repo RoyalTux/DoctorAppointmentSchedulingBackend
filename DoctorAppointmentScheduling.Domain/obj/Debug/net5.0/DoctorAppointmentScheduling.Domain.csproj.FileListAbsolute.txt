@@ -1,0 +1,12 @@
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\bin\Debug\net5.0\DoctorAppointmentScheduling.Domain.deps.json
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\bin\Debug\net5.0\DoctorAppointmentScheduling.Domain.dll
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\bin\Debug\net5.0\ref\DoctorAppointmentScheduling.Domain.dll
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\bin\Debug\net5.0\DoctorAppointmentScheduling.Domain.pdb
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net5.0\DoctorAppointmentScheduling.Domain.csprojAssemblyReference.cache
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net5.0\DoctorAppointmentScheduling.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net5.0\DoctorAppointmentScheduling.Domain.AssemblyInfoInputs.cache
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net5.0\DoctorAppointmentScheduling.Domain.AssemblyInfo.cs
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net5.0\DoctorAppointmentScheduling.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net5.0\DoctorAppointmentScheduling.Domain.dll
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net5.0\ref\DoctorAppointmentScheduling.Domain.dll
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net5.0\DoctorAppointmentScheduling.Domain.pdb

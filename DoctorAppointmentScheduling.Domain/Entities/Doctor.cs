@@ -3,7 +3,7 @@ using DoctorAppointmentScheduling.Domain.Interfaces;
 
 namespace DoctorAppointmentScheduling.Domain.Entities
 {
-    public class Doctor : User, IEntity
+    public class Doctor : BaseUser, IEntity
     {
         public int Id { get; set; }
 

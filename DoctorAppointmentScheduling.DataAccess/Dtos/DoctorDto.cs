@@ -3,7 +3,7 @@ using DoctorAppointmentScheduling.Domain.Interfaces;
 
 namespace DoctorAppointmentScheduling.DataAccess.Dtos
 {
-    public class DoctorDto : UserDto, IEntity
+    public class DoctorDto : BaseUserDto, IEntity
     {
         public int Id { get; set; }
 
