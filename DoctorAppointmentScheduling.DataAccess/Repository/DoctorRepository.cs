@@ -10,12 +10,12 @@ using DoctorAppointmentScheduling.DataAccess.Dtos;
 
 namespace DoctorAppointmentScheduling.DataAccess.Repository
 {
-    public class DoctorRepository : RepositoryBase<Doctor, DoctorDto, DataBaseContext>
+    public class DoctorRepository : RepositoryBase<Doctor, DoctorDto, ClinicDbContext>
     {
-        private readonly DataBaseContext _context;
+        private readonly ClinicDbContext _context;
         private readonly IMapper _mapper;
 
-        public DoctorRepository(DataBaseContext context, IMapper mapper) : base(context, mapper)
+        public DoctorRepository(ClinicDbContext context, IMapper mapper) : base(context, mapper)
         {
             _context = context;
             _mapper = mapper;

@@ -7,11 +7,11 @@ using System;
 
 namespace DoctorAppointmentScheduling.DataAccess.Context
 {
-    public class DataBaseContext : IdentityDbContext<User, Role, Guid>
+    public class ClinicDbContext : IdentityDbContext<User, Role, string>
     {
-        public DataBaseContext() { }
+        // public ClinicDbContext() { }
 
-        public DataBaseContext(DbContextOptions<DataBaseContext> options)
+        public ClinicDbContext(DbContextOptions<ClinicDbContext> options)
             : base(options)
         {
         }

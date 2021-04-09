@@ -53,9 +53,17 @@ namespace DoctorAppointmentScheduling
 
             string connectionString = config.GetConnectionString("DefaultConnection");
 
-            var dataAssemblyName = typeof(DataBaseContext).Assembly.GetName().Name;
-            services.AddDbContext<DataBaseContext>(options =>
-                options.UseSqlServer(connectionString, x => x.MigrationsAssembly(dataAssemblyName)));
+            // var dataAssemblyName = typeof(ClinicDbContext).Assembly.GetName().Name;
+            // services.AddDbContext<ClinicDbContext>(options =>
+            //    options.UseSqlServer(connectionString, x => x.MigrationsAssembly(dataAssemblyName)));
+
+            services.AddDbContext<ClinicDbContext>(options =>
+            {
+                if (!string.IsNullOrEmpty(connectionString))
+                {
+                    options.UseSqlServer(connectionString);
+                }
+            }, ServiceLifetime.Transient);
 
             services.AddScoped<DoctorService>();
             services.AddScoped<PatientService>();
@@ -77,7 +85,7 @@ namespace DoctorAppointmentScheduling
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1d);
                 options.Lockout.MaxFailedAccessAttempts = 5;
             })
-                .AddEntityFrameworkStores<DataBaseContext>()
+                .AddEntityFrameworkStores<ClinicDbContext>()
                 .AddDefaultTokenProviders();
 
             services.AddControllers();
@@ -122,7 +130,7 @@ namespace DoctorAppointmentScheduling
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         // public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseContext context)
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataBaseContext context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ClinicDbContext context)
         {
             context.Database.EnsureCreated();
             // context.Database.EnsureDeleted();
