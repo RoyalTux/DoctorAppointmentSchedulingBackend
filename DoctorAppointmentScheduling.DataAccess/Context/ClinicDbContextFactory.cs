@@ -7,7 +7,6 @@ namespace DoctorAppointmentScheduling.DataAccess.Context
     {
         public ClinicDbContext CreateDbContext(string[] args)
         {
-            // string connectionString = config.GetConnectionString("DefaultConnection");
             var optionsBuilder = new DbContextOptionsBuilder<ClinicDbContext>();
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=DoctorAppointmentSchedulingDb;Trusted_Connection=True;");
 

@@ -53,10 +53,6 @@ namespace DoctorAppointmentScheduling
 
             string connectionString = config.GetConnectionString("DefaultConnection");
 
-            // var dataAssemblyName = typeof(ClinicDbContext).Assembly.GetName().Name;
-            // services.AddDbContext<ClinicDbContext>(options =>
-            //    options.UseSqlServer(connectionString, x => x.MigrationsAssembly(dataAssemblyName)));
-
             services.AddDbContext<ClinicDbContext>(options =>
             {
                 if (!string.IsNullOrEmpty(connectionString))

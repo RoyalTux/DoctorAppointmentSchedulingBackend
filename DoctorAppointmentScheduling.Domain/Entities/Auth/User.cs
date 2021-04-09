@@ -3,7 +3,7 @@ using System;
 
 namespace DoctorAppointmentScheduling.Domain.Entities.Auth
 {
-    public class User : IdentityUser<string>
+    public class User : IdentityUser<Guid>
     {
     }
 }
