@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DoctorAppointmentScheduling.WebAPi.ViewModels
 {
-    public class DoctorViewModel : UserViewModel, IEntity
+    public class DoctorViewModel : BaseUserViewModel, IEntity
     {
         public int Id { get; set; }
 

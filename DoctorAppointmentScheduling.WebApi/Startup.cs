@@ -1,7 +1,9 @@
 using DoctorAppointmentScheduling.DataAccess.Context;
 using DoctorAppointmentScheduling.DataAccess.Repository;
-using DoctorAppointmentScheduling.Domain.Entities;
+using DoctorAppointmentScheduling.Domain.Entities.Auth;
 using DoctorAppointmentScheduling.Service.Services;
+using DoctorAppointmentScheduling.WebAPi.Extensions;
+using DoctorAppointmentScheduling.WebAPi.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -11,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace DoctorAppointmentScheduling
@@ -50,9 +53,10 @@ namespace DoctorAppointmentScheduling
 
             string connectionString = config.GetConnectionString("DefaultConnection");
 
+            var dataAssemblyName = typeof(DataBaseContext).Assembly.GetName().Name;
             services.AddDbContext<DataBaseContext>(options =>
-                options.UseSqlServer(connectionString));
-              
+                options.UseSqlServer(connectionString, x => x.MigrationsAssembly(dataAssemblyName)));
+
             services.AddScoped<DoctorService>();
             services.AddScoped<PatientService>();
             services.AddScoped<AppointmentService>();
@@ -65,14 +69,53 @@ namespace DoctorAppointmentScheduling
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            services.AddIdentity<User, IdentityRole>()
-                    .AddEntityFrameworkStores<DataBaseContext>();
+            services.AddIdentity<User, Role>(options =>
+            {
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1d);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+            })
+                .AddEntityFrameworkStores<DataBaseContext>()
+                .AddDefaultTokenProviders();
 
             services.AddControllers();
 
-            services.AddSwaggerGen(c =>
+            services.Configure<JwtSettings>(Configuration.GetSection("Jwt"));
+            var jwtSettings = Configuration.GetSection("Jwt").Get<JwtSettings>();
+
+            services.AddAuth(jwtSettings);
+
+            services.AddSwaggerGen(options =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "DoctorAppointmentScheduling", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Doctor Appointment Scheduling", Version = "v1" });
+
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "JWT containing userid claim",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                });
+
+                var security =
+                    new OpenApiSecurityRequirement
+                    {
+                        {
+                            new OpenApiSecurityScheme
+                            {
+                                Reference = new OpenApiReference
+                                {
+                                    Id = "Bearer",
+                                    Type = ReferenceType.SecurityScheme
+                                },
+                                UnresolvedReference = true
+                            },
+                            new List<string>()
+                        }
+                    };
+                options.AddSecurityRequirement(security);
             });
         }
 
@@ -90,6 +133,11 @@ namespace DoctorAppointmentScheduling
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DoctorAppointmentScheduling v1"));
             }
+            else
+            {
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
 
             app.UseHttpsRedirection();
 
@@ -97,7 +145,7 @@ namespace DoctorAppointmentScheduling
 
             app.UseCors("AllowFrontEnd");
 
-            app.UseAuthorization();
+            app.UseAuth();
 
             app.UseEndpoints(endpoints =>
             {

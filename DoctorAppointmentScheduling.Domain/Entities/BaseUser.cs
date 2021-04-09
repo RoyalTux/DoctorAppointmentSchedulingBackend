@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace DoctorAppointmentScheduling.Domain.Entities
 {
-    public class User : IdentityUser
+    public class BaseUser
     {
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        public string Email { get; set; }
 
         public string Country { get; set; }
 

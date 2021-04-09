@@ -2,7 +2,7 @@
 
 namespace DoctorAppointmentScheduling.DataAccess.Dtos
 {
-    public class UserDto
+    public class BaseUserDto
     {
         public string FirstName { get; set; }
 

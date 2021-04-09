@@ -293,6 +293,7 @@
       "System.Reflection.Emit/4.7.0": {},
       "DoctorAppointmentScheduling.Domain/1.0.0": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.5"
         },
         "runtime": {

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DoctorAppointmentScheduling.Domain.Entities;
+using DoctorAppointmentScheduling.Domain.Entities.Auth;
 using DoctorAppointmentScheduling.WebAPi.ViewModels;
 
 namespace DoctorAppointmentScheduling.WebAPi.Mapping
@@ -12,6 +13,9 @@ namespace DoctorAppointmentScheduling.WebAPi.Mapping
             CreateMap<DoctorViewModel, Doctor>().ReverseMap();
             CreateMap<PatientViewModel, Patient>().ReverseMap();
             CreateMap<ReviewViewModel, Review>().ReverseMap();
+
+            CreateMap<SignUpViewModel, User>()
+                .ForMember(u => u.UserName, opt => opt.MapFrom(ur => ur.Email));
         }
     }
 }
