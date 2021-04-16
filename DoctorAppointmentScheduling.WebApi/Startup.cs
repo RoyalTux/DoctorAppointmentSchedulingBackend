@@ -84,7 +84,10 @@ namespace DoctorAppointmentScheduling
                 .AddEntityFrameworkStores<ClinicDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddControllers();
+            services.AddControllers(options =>
+            {
+                options.RespectBrowserAcceptHeader = true;
+            });
 
             services.Configure<JwtSettings>(Configuration.GetSection("Jwt"));
             var jwtSettings = Configuration.GetSection("Jwt").Get<JwtSettings>();

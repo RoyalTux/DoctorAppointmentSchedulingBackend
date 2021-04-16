@@ -66,6 +66,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
             if (userSigninResult)
             {
                 var roles = await _userManager.GetRolesAsync(user);
+
                 return Ok(GenerateJwt(user, roles));
             }
 
