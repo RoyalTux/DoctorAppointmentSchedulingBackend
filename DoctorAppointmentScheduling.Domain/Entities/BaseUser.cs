@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using DoctorAppointmentScheduling.Domain.Entities.Auth;
+using System.Collections.Generic;
 
 namespace DoctorAppointmentScheduling.Domain.Entities
 {
-    public class BaseUser
+    public class BaseUser : User
     {
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
 
-        public string Email { get; set; }
+        // public string Email { get; set; }
 
         public string Country { get; set; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoctorAppointmentScheduling.Service.Services
 {
-    public class ReviewService : IService<Review>
+    public class ReviewService : IService<Review, int>
     {
         private readonly ReviewRepository _repository;
 

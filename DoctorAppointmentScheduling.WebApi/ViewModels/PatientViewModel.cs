@@ -1,11 +1,12 @@
 ﻿using DoctorAppointmentScheduling.Domain.Interfaces;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace DoctorAppointmentScheduling.WebAPi.ViewModels
 {
-    public class PatientViewModel : BaseUserViewModel, IEntity
+    public class PatientViewModel : BaseUserViewModel, IEntity<Guid>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [StringLength(100, MinimumLength = 3)]

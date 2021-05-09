@@ -2,12 +2,13 @@
 using DoctorAppointmentScheduling.Domain.Entities;
 using DoctorAppointmentScheduling.Domain.Enums;
 using DoctorAppointmentScheduling.Service.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace DoctorAppointmentScheduling.Service.Services
 {
-    public class DoctorService : IService<Doctor>
+    public class DoctorService : IService<Doctor, Guid>
     {
         private readonly DoctorRepository _repository;
 
@@ -21,7 +22,7 @@ namespace DoctorAppointmentScheduling.Service.Services
             return await _repository.GetAll();
         }
 
-        public async Task<Doctor> GetById(int id)
+        public async Task<Doctor> GetById(Guid id)
         {
             var entity = await _repository.GetById(id);
 
@@ -42,14 +43,14 @@ namespace DoctorAppointmentScheduling.Service.Services
             return entity;
         }
 
-        public async Task<Doctor> Delete(int id)
+        public async Task<Doctor> Delete(Guid id)
         {
             var entity = await _repository.Delete(id);
 
             return entity;
         }
 
-        public async Task<Rating> GetRating(int id)
+        public async Task<Rating> GetRating(Guid id)
         {
             var entity = await _repository.GetRating(id);
 

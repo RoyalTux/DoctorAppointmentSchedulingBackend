@@ -1,7 +1,7 @@
 ﻿namespace DoctorAppointmentScheduling.Domain.Interfaces
 {
-    public interface IEntity
+    public interface IEntity<T>
     {
-        int Id { get; set; }
+        T Id { get; set; }
     }
 }

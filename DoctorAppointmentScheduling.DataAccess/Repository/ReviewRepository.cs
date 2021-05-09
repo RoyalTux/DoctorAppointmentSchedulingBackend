@@ -5,7 +5,7 @@ using DoctorAppointmentScheduling.Domain.Entities;
 
 namespace DoctorAppointmentScheduling.DataAccess.Repository
 {
-    public class ReviewRepository : RepositoryBase<Review, ReviewDto, ClinicDbContext>
+    public class ReviewRepository : RepositoryBase<Review, ReviewDto, ClinicDbContext, int>
     {
         public ReviewRepository(ClinicDbContext context, IMapper mapper) : base(context, mapper)
         {

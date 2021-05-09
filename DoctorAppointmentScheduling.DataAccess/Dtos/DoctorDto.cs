@@ -1,11 +1,12 @@
 ﻿using DoctorAppointmentScheduling.Domain.Enums;
 using DoctorAppointmentScheduling.Domain.Interfaces;
+using System;
 
 namespace DoctorAppointmentScheduling.DataAccess.Dtos
 {
-    public class DoctorDto : BaseUserDto, IEntity
+    public class DoctorDto : BaseUserDto, IEntity<Guid>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public int ExperienceYears { get; set; }
 

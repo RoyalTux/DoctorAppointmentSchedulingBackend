@@ -1,12 +1,13 @@
 ﻿using DoctorAppointmentScheduling.DataAccess.Repository;
 using DoctorAppointmentScheduling.Domain.Entities;
 using DoctorAppointmentScheduling.Service.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace DoctorAppointmentScheduling.Service.Services
 {
-    public class PatientService : IService<Patient>
+    public class PatientService : IService<Patient, Guid>
     {
         private readonly PatientRepository _repository;
 
@@ -20,7 +21,7 @@ namespace DoctorAppointmentScheduling.Service.Services
             return await _repository.GetAll();
         }
 
-        public async Task<Patient> GetById(int id)
+        public async Task<Patient> GetById(Guid id)
         {
             var entity = await _repository.GetById(id);
 
@@ -41,7 +42,7 @@ namespace DoctorAppointmentScheduling.Service.Services
             return entity;
         }
 
-        public async Task<Patient> Delete(int id)
+        public async Task<Patient> Delete(Guid id)
         {
             var entity = await _repository.Delete(id);
 
