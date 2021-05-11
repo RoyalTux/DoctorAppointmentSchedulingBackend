@@ -117,12 +117,15 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.UserName),
+                // new Claim(ClaimTypes.Name, user.UserName),
+                new Claim("name", user.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
             };
 
-            var roleClaims = roles.Select(r => new Claim(ClaimTypes.Role, r));
+            // var roleClaims = roles.Select(r => new Claim(ClaimTypes.Role, r));
+            var roleClaims = roles.Select(r => new Claim("role", r));
+
             claims.AddRange(roleClaims);
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Secret));

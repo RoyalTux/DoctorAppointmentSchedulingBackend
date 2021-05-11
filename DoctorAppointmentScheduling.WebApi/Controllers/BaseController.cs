@@ -30,7 +30,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
 
             return viewModels;
         }
-
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<TViewModel>> Get(T id)
         {
