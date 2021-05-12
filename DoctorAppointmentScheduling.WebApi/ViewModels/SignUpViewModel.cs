@@ -20,5 +20,8 @@ namespace DoctorAppointmentScheduling.WebAPi.ViewModels
         [DataType(DataType.Password)]
         [Display(Name = "Confirm Password")]
         public string PasswordConfirm { get; set; }
+
+        [Display(Name = "Is Doctor")]
+        public bool IsDoctor { get; set; }
     }
 }

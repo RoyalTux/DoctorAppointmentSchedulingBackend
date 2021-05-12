@@ -46,7 +46,24 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
 
             if (userCreateResult.Succeeded)
             {
-                return Created(string.Empty, string.Empty);
+                IdentityResult result;
+                
+                if (signUpViewModel.IsDoctor)
+                {
+                    result = await _userManager.AddToRoleAsync(user, "doctor");
+                }
+                else
+                {
+                    result = await _userManager.AddToRoleAsync(user, "patient");
+                    // return Created(string.Empty, string.Empty);
+                }
+
+                if (result.Succeeded)
+                {
+                    return Ok();
+                }
+
+                return Problem(result.Errors.First().Description, null, 500);
             }
 
             return Problem(userCreateResult.Errors.First().Description, null, 500);
@@ -117,13 +134,11 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                // new Claim(ClaimTypes.Name, user.UserName),
                 new Claim("name", user.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
             };
 
-            // var roleClaims = roles.Select(r => new Claim(ClaimTypes.Role, r));
             var roleClaims = roles.Select(r => new Claim("role", r));
 
             claims.AddRange(roleClaims);
