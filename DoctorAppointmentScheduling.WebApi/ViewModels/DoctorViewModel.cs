@@ -12,7 +12,6 @@ namespace DoctorAppointmentScheduling.WebAPi.ViewModels
         [Required]
         public int ExperienceYears { get; set; }
 
-        [Required]
         public Rating? Rating { get; set; }
     }
 }

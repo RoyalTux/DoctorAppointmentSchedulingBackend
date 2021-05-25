@@ -13,8 +13,6 @@ namespace DoctorAppointmentScheduling.WebAPi.ViewModels
         [StringLength(50, MinimumLength = 1)]
         public string LastName { get; set; }
 
-        //public string Email { get; set; }
-
         [Required]
         [StringLength(50, MinimumLength = 1)]
         public string Country { get; set; }
