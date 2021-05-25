@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
+using DoctorAppointmentScheduling.Domain.Entities;
 using DoctorAppointmentScheduling.Domain.Entities.Auth;
+using DoctorAppointmentScheduling.Domain.Enums;
+using DoctorAppointmentScheduling.Service.Services;
 using DoctorAppointmentScheduling.WebAPi.Settings;
 using DoctorAppointmentScheduling.WebAPi.ViewModels;
 using Microsoft.AspNetCore.Identity;
@@ -20,6 +23,8 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+        private readonly DoctorService _doctorService;
+        private readonly PatientService _patientService;
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
         private readonly RoleManager<Role> _roleManager;
@@ -27,11 +32,15 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
 
         public AuthController(
             IMapper mapper,
+            DoctorService doctorService,
+            PatientService patientService,
             UserManager<User> userManager,
             RoleManager<Role> roleManager,
             IOptionsSnapshot<JwtSettings> jwtSettings)
         {
             _mapper = mapper;
+            _doctorService = doctorService;
+            _patientService = patientService;
             _userManager = userManager;
             _roleManager = roleManager;
             _jwtSettings = jwtSettings.Value;
@@ -46,7 +55,59 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
 
             if (userCreateResult.Succeeded)
             {
-                return Created(string.Empty, string.Empty);
+                IdentityResult result;
+
+                if (signUpViewModel.IsDoctor)
+                {
+                    result = await _userManager.AddToRoleAsync(user, "doctor");
+
+                    if (result.Succeeded)
+                    {
+                        Doctor defaultDoctorProfile = new Doctor
+                        {
+                            Id = user.Id,
+                            Bio = "Not indicated!",
+                            City = "Not indicated!",
+                            Country = "Not indicated!",
+                            Email = user.Email,
+                            FirstName = "Not indicated!",
+                            LastName = "Not indicated!",
+                            PhoneNumber = "Not indicated!",
+                            ExperienceYears = 0,
+                            Rating = Rating.NO_RATING
+                        };
+
+                        await _doctorService.Add(defaultDoctorProfile);
+
+                        return Ok();
+                    }
+                }
+                else
+                {
+                    result = await _userManager.AddToRoleAsync(user, "patient");
+
+                    if (result.Succeeded)
+                    {
+                        Patient defaultPatientProfile = new Patient
+                        {
+                            Id = user.Id,
+                            Bio = "Not indicated!",
+                            City = "Not indicated!",
+                            Country = "Not indicated!",
+                            Email = user.Email,
+                            FirstName = "Not indicated!",
+                            LastName = "Not indicated!",
+                            Address = "Not indicated!",
+                            PhoneNumber = "Not indicated!",
+                        };
+
+                        await _patientService.Add(defaultPatientProfile);
+
+                        return Ok();
+                    }
+                }
+
+                return Problem(result.Errors.First().Description, null, 500);
             }
 
             return Problem(userCreateResult.Errors.First().Description, null, 500);
@@ -117,12 +178,13 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim("name", user.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
             };
 
-            var roleClaims = roles.Select(r => new Claim(ClaimTypes.Role, r));
+            var roleClaims = roles.Select(r => new Claim("role", r));
+
             claims.AddRange(roleClaims);
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Secret));

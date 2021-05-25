@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 using AutoMapper;
 using System.Collections.Generic;
 using DoctorAppointmentScheduling.DataAccess.Dtos;
+using System;
 
 namespace DoctorAppointmentScheduling.DataAccess.Repository
 {
-    public class DoctorRepository : RepositoryBase<Doctor, DoctorDto, ClinicDbContext>
+    public class DoctorRepository : RepositoryBase<Doctor, DoctorDto, ClinicDbContext, Guid>
     {
         private readonly ClinicDbContext _context;
         private readonly IMapper _mapper;
@@ -21,7 +22,7 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
             _mapper = mapper;
         }
 
-        public async Task<Rating> GetRating(int id)
+        public async Task<Rating> GetRating(Guid id)
         {
             IEnumerable<ReviewDto> reviewsDto = await _context.Reviews.Where(r => r.DoctorId == id).ToListAsync();
 

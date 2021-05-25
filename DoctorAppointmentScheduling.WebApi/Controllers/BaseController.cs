@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace DoctorAppointmentScheduling.WebAPi.Controllers
 {
-    public abstract class BaseController<TViewModel, TDomainModel, TService> : ControllerBase
-        where TViewModel : class, IEntity
-        where TDomainModel : class, IEntity
-        where TService : IService<TDomainModel>
+    public abstract class BaseController<TViewModel, TDomainModel, TService, T> : ControllerBase
+        where TViewModel : class, IEntity<T>
+        where TDomainModel : class, IEntity<T>
+        where TService : IService<TDomainModel, T>
     {
         private readonly TService _service;
         private readonly IMapper _mapper;
@@ -30,9 +30,9 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
 
             return viewModels;
         }
-
+        
         [HttpGet("{id}")]
-        public async Task<ActionResult<TViewModel>> Get(int id)
+        public async Task<ActionResult<TViewModel>> Get(T id)
         {
             TDomainModel domainEntity = await _service.GetById(id);
 
@@ -47,9 +47,9 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, TViewModel viewModel)
+        public async Task<IActionResult> Put(T id, TViewModel viewModel)
         {
-            if (id != viewModel.Id)
+            if(!id.Equals(viewModel.Id))
             {
                 return BadRequest();
             }
@@ -72,7 +72,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<TViewModel>> Delete(int id)
+        public async Task<ActionResult<TViewModel>> Delete(T id)
         {
             TDomainModel domainModel = await _service.Delete(id);
 

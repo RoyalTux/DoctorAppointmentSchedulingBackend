@@ -4,15 +4,15 @@ using System;
 
 namespace DoctorAppointmentScheduling.WebAPi.ViewModels
 {
-    public class AppointmentViewModel : IEntity
+    public class AppointmentViewModel : IEntity<int>
     {
         public int Id { get; set; }
 
         [Required]
-        public int DoctorId { get; set; }
+        public Guid DoctorId { get; set; }
 
         [Required]
-        public int PatientId { get; set; }
+        public Guid PatientId { get; set; }
 
         [Required]
         [StringLength(500, MinimumLength = 3)]

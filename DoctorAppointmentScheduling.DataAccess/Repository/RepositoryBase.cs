@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DoctorAppointmentScheduling.DataAccess.Repository
 {
-    public abstract class RepositoryBase<TDomainEntity, TDtoEntity, TContext> : IRepositoryBase<TDomainEntity>
-        where TDomainEntity : class, IEntity
-        where TDtoEntity : class, IEntity
+    public abstract class RepositoryBase<TDomainEntity, TDtoEntity, TContext, T> : IRepositoryBase<TDomainEntity, T>
+        where TDomainEntity : class, IEntity<T>
+        where TDtoEntity : class, IEntity<T>
         where TContext : DbContext
     {
         private readonly TContext _context;
@@ -29,7 +29,7 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
             return entites;
         }
 
-        public async Task<TDomainEntity> GetById(int id)
+        public async Task<TDomainEntity> GetById(T id)
         {
             TDtoEntity dtoEntity = await _context.Set<TDtoEntity>().FindAsync(id);
 
@@ -58,7 +58,7 @@ namespace DoctorAppointmentScheduling.DataAccess.Repository
             return entity;
         }
 
-        public async Task<TDomainEntity> Delete(int id)
+        public async Task<TDomainEntity> Delete(T id)
         {
             TDtoEntity dtoEntity = await _context.Set<TDtoEntity>().FindAsync(id);
 

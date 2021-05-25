@@ -10,7 +10,7 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class AppointmentsController : BaseController<AppointmentViewModel, Appointment, AppointmentService>
+    public class AppointmentsController : BaseController<AppointmentViewModel, Appointment, AppointmentService, int>
     {
         public AppointmentsController(AppointmentService service, IMapper mapper) : base(service, mapper)
         {
