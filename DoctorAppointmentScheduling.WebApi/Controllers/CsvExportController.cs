@@ -57,10 +57,10 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
             }
             catch
             {
-                return "CSV not saved!";
+                return "CSV file not saved!";
             }
 
-            return "CSV file successfully saved!";
+            return "CSV files successfully saved!";
         }
 
         [HttpGet("Patients/{csvFilesNumber}")]
@@ -92,10 +92,10 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
             }
             catch
             {
-                return "CSV not saved!";
+                return "CSV file not saved!";
             }
 
-            return "CSV file successfully saved!";
+            return "CSV files successfully saved!";
         }
     }
 }
