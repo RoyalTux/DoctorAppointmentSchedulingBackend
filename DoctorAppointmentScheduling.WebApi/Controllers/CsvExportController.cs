@@ -1,104 +1,101 @@
 ﻿using AutoMapper;
 using DoctorAppointmentScheduling.Domain.Entities;
 using DoctorAppointmentScheduling.Service.Services;
+using DoctorAppointmentScheduling.WebAPi.Extensions;
 using DoctorAppointmentScheduling.WebAPi.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace DoctorAppointmentScheduling.WebAPi.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    // [Authorize]
+    [Route("api/[controller]")]
     public class CsvExportController
     {
         private readonly DoctorService _doctorService;
+        private readonly PatientService _patientService;
         private readonly IMapper _mapper;
 
-        public CsvExportController(DoctorService doctorService, IMapper mapper)
+        public CsvExportController(DoctorService doctorService, PatientService patientService, IMapper mapper)
         {
             _doctorService = doctorService;
+            _patientService = patientService;
             _mapper = mapper;
         }
 
-        [HttpGet("Doctors")]
-        public ActionResult<string> Get()
+        [HttpGet("Doctors/{csvFilesNumber}")]
+        public ActionResult<string> ExportDoctors(int csvFilesNumber)
         {
             DateTime dateTime = DateTime.Now;
-            string csvFileName = "Clinic doctors list_" + dateTime.ToString("dddd, dd MMMM yyyy HH mm ss");
+            string csvFolderName = "Clinic doctors_" + dateTime.ToString("dddd, dd MMMM yyyy HH mm ss");
+            string finalPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, csvFolderName);
             Task<List<Doctor>> doctorsListTask = Task.Run(() => _doctorService.GetAll());
             List<Doctor> domainDoctorsList = doctorsListTask.Result;
-            List<DoctorViewModel> doctorsList = _mapper.Map<List<DoctorViewModel>>(domainDoctorsList);
+            List<DoctorViewModel> doctorList = _mapper.Map<List<DoctorViewModel>>(domainDoctorsList);
 
-            CancellationTokenSource cancelTokenSource = new CancellationTokenSource();
+            if (!Directory.Exists(finalPath))
+            {
+                Directory.CreateDirectory(finalPath);
+            }
 
             try
             {
-                Task exportDoctrorsListToCsvTask = new Task(() => ExportCsv(doctorsList, csvFileName));
-                exportDoctrorsListToCsvTask.Start();
+                for (int i = 0; i < csvFilesNumber; i++)
+                {
+                    string csvFileName = "Clinic doctors list_" + dateTime.ToString("dddd, dd MMMM yyyy HH mm ss") + "_" + (i + 1);
+                    CsvExporter<DoctorViewModel> csvExporter = new CsvExporter<DoctorViewModel>(doctorList, csvFileName, finalPath);
+                    Thread csvExporterThread = new Thread(new ThreadStart(csvExporter.ExportCsv));
+
+                    csvExporterThread.Start();
+                    csvExporterThread.Join();
+                }
             }
             catch
             {
-                cancelTokenSource.Cancel();
-
                 return "CSV not saved!";
             }
-            finally
-            {
-                cancelTokenSource.Dispose();
-            }
- 
-            return "CSV successfully saved!";
+
+            return "CSV file successfully saved!";
         }
 
-        public static void ExportCsv<T>(List<T> genericList, string fileName)
+        [HttpGet("Patients/{csvFilesNumber}")]
+        public ActionResult<string> ExportPatients(int csvFilesNumber)
         {
-            var sb = new StringBuilder();
-            var basePath = AppDomain.CurrentDomain.BaseDirectory;
-            var finalPath = Path.Combine(basePath, fileName + ".csv");
-            var header = "";
-            var info = typeof(T).GetProperties();
+            DateTime dateTime = DateTime.Now;
+            string csvFolderName = "Clinic patients_" + dateTime.ToString("dddd, dd MMMM yyyy HH mm ss");
+            string finalPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, csvFolderName);
+            Task<List<Patient>> patientsListTask = Task.Run(() => _patientService.GetAll());
+            List<Patient> domainPatientsList = patientsListTask.Result;
+            List<PatientViewModel> patientsList = _mapper.Map<List<PatientViewModel>>(domainPatientsList);
 
-            if (!File.Exists(finalPath))
+            if (!Directory.Exists(finalPath))
             {
-                var file = File.Create(finalPath);
-                file.Close();
-
-                foreach (var prop in typeof(T).GetProperties())
-                {
-                    header += prop.Name + "; ";
-                }
-
-                header = header.Substring(0, header.Length - 2);
-                sb.AppendLine(header);
-
-                TextWriter sw = new StreamWriter(finalPath, true);
-
-                sw.Write(sb.ToString());
-                sw.Close();
+                Directory.CreateDirectory(finalPath);
             }
-            foreach (var obj in genericList)
+
+            try
             {
-                sb = new StringBuilder();
-                var line = "";
-
-                foreach (var prop in info)
+                for (int i = 0; i < csvFilesNumber; i++)
                 {
-                    line += prop.GetValue(obj, null) + "; ";
+                    string csvFileName = "Clinic patients list_" + dateTime.ToString("dddd, dd MMMM yyyy HH mm ss") + "_" + (i + 1);
+                    CsvExporter<PatientViewModel> csvExporter = new CsvExporter<PatientViewModel>(patientsList, csvFileName, finalPath);
+                    Thread csvExporterThread = new Thread(new ThreadStart(csvExporter.ExportCsv));
+
+                    csvExporterThread.Start();
+                    csvExporterThread.Join();
                 }
-
-                line = line.Substring(0, line.Length - 2);
-                sb.AppendLine(line);
-
-                TextWriter sw = new StreamWriter(finalPath, true);
-
-                sw.Write(sb.ToString());
-                sw.Close();
             }
+            catch
+            {
+                return "CSV not saved!";
+            }
+
+            return "CSV file successfully saved!";
         }
     }
 }
