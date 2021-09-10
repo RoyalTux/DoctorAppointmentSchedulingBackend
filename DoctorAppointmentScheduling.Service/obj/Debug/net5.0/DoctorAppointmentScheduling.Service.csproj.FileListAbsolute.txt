@@ -6,7 +6,6 @@ C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointme
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Service\bin\Debug\net5.0\DoctorAppointmentScheduling.Domain.dll
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Service\bin\Debug\net5.0\DoctorAppointmentScheduling.DataAccess.pdb
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Service\bin\Debug\net5.0\DoctorAppointmentScheduling.Domain.pdb
-C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Service\obj\Debug\net5.0\DoctorAppointmentScheduling.Service.csprojAssemblyReference.cache
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Service\obj\Debug\net5.0\DoctorAppointmentScheduling.Service.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Service\obj\Debug\net5.0\DoctorAppointmentScheduling.Service.AssemblyInfoInputs.cache
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Service\obj\Debug\net5.0\DoctorAppointmentScheduling.Service.AssemblyInfo.cs
@@ -15,3 +14,4 @@ C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointme
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Service\obj\Debug\net5.0\DoctorAppointmentScheduling.Service.dll
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Service\obj\Debug\net5.0\ref\DoctorAppointmentScheduling.Service.dll
 C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Service\obj\Debug\net5.0\DoctorAppointmentScheduling.Service.pdb
+C:\Users\Dmitriy\source\repos\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Service\obj\Debug\net5.0\DoctorAppointmentScheduling.Service.csproj.AssemblyReference.cache

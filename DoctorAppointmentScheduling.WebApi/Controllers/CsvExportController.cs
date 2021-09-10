@@ -63,8 +63,8 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
             return "CSV files successfully saved!";
         }
 
-        [HttpGet("Patients/{csvFilesNumber}")]
-        public ActionResult<string> ExportPatients(int csvFilesNumber)
+        [HttpGet("ExportPatientsWithDuplicatons/{duplicationInfoNumber}")]
+        public ActionResult<string> ExportPatientsWithDuplicatons(int duplicationInfoNumber)
         {
             DateTime dateTime = DateTime.Now;
             string csvFolderName = "Clinic patients_" + dateTime.ToString("dddd, dd MMMM yyyy HH mm ss");
@@ -80,9 +80,9 @@ namespace DoctorAppointmentScheduling.WebAPi.Controllers
 
             try
             {
-                for (int i = 0; i < csvFilesNumber; i++)
+                for (int i = 0; i < duplicationInfoNumber; i++)
                 {
-                    string csvFileName = "Clinic patients list_" + dateTime.ToString("dddd, dd MMMM yyyy HH mm ss") + "_" + (i + 1);
+                    string csvFileName = "Clinic patients list_" + dateTime.ToString("dddd, dd MMMM yyyy HH mm ss");
                     CsvExporter<PatientViewModel> csvExporter = new CsvExporter<PatientViewModel>(patientsList, csvFileName, finalPath);
                     Thread csvExporterThread = new Thread(new ThreadStart(csvExporter.ExportCsv));
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ID8cqi2r3kZtXHvujYpPAYUeLTan76iYulU16NptH1yc71UzBuMjDBJ3kxI4VaH4eTpsF8u1RATm/elLminDRA==",
+  "dgSpecHash": "SYlQ3ZpNF5DQAvChWScncfoqudvdHBxpmsgYO31ZOGgrfv/s6RXWoXCC6d7XYHUhWcvuUQN3E3axlbrjGbYjrw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dmitriy\\source\\repos\\DoctorAppointmentSchedulingBackend\\DoctorAppointmentScheduling.Domain\\DoctorAppointmentScheduling.Domain.csproj",
   "expectedPackageFiles": [

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading;
 
 namespace DoctorAppointmentScheduling.WebAPi.Extensions
 {
@@ -26,43 +27,57 @@ namespace DoctorAppointmentScheduling.WebAPi.Extensions
             var finalPath = Path.Combine(_basePath, _fileName + ".csv");
             var header = "";
             var info = typeof(T).GetProperties();
+            int thread_counter = 3;
+            Semaphore semaphore = new Semaphore(thread_counter, thread_counter);
 
-            if (!File.Exists(finalPath))
+            while (thread_counter > 0)
             {
-                var file = File.Create(finalPath);
-                file.Close();
+                semaphore.WaitOne();
 
-                foreach (var prop in typeof(T).GetProperties())
+                if (!File.Exists(finalPath))
                 {
-                    header += prop.Name + "; ";
+                    var file = File.Create(finalPath);
+                    file.Close();
+
+                    foreach (var prop in typeof(T).GetProperties())
+                    {
+                        header += prop.Name + "; ";
+                    }
+
+                    header = header.Substring(0, header.Length - 2);
+                    sb.AppendLine(header);
+
+                    TextWriter sw = new StreamWriter(finalPath, true);
+
+                    sw.Write(sb.ToString());
+                    sw.Close();
+                }
+                foreach (var obj in _genericList)
+                {
+                    sb = new StringBuilder();
+                    var line = "";
+
+                    foreach (var prop in info)
+                    {
+                        line += prop.GetValue(obj, null) + "; ";
+                    }
+
+                    line = line.Substring(0, line.Length - 2);
+                    line += Thread.CurrentThread.ManagedThreadId + ";";
+                    sb.AppendLine(line);
+
+                    TextWriter sw = new StreamWriter(finalPath, true);
+
+                    sw.Write(sb.ToString());
+                    sw.Close();
                 }
 
-                header = header.Substring(0, header.Length - 2);
-                sb.AppendLine(header);
+                semaphore.Release();
 
-                TextWriter sw = new StreamWriter(finalPath, true);
-
-                sw.Write(sb.ToString());
-                sw.Close();
+                thread_counter--;
             }
-            foreach (var obj in _genericList)
-            {
-                sb = new StringBuilder();
-                var line = "";
 
-                foreach (var prop in info)
-                {
-                    line += prop.GetValue(obj, null) + "; ";
-                }
-
-                line = line.Substring(0, line.Length - 2);
-                sb.AppendLine(line);
-
-                TextWriter sw = new StreamWriter(finalPath, true);
-
-                sw.Write(sb.ToString());
-                sw.Close();
-            }
+            semaphore.Dispose();
         }
     }
 }
