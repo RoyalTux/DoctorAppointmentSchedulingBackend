@@ -1,0 +1,12 @@
+C:\Users\d.shchebetovskyi\source\repos\roadmap\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\bin\Debug\net6.0\DoctorAppointmentScheduling.Domain.deps.json
+C:\Users\d.shchebetovskyi\source\repos\roadmap\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\bin\Debug\net6.0\DoctorAppointmentScheduling.Domain.dll
+C:\Users\d.shchebetovskyi\source\repos\roadmap\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\bin\Debug\net6.0\ref\DoctorAppointmentScheduling.Domain.dll
+C:\Users\d.shchebetovskyi\source\repos\roadmap\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\bin\Debug\net6.0\DoctorAppointmentScheduling.Domain.pdb
+C:\Users\d.shchebetovskyi\source\repos\roadmap\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net6.0\DoctorAppointmentScheduling.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\d.shchebetovskyi\source\repos\roadmap\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net6.0\DoctorAppointmentScheduling.Domain.AssemblyInfoInputs.cache
+C:\Users\d.shchebetovskyi\source\repos\roadmap\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net6.0\DoctorAppointmentScheduling.Domain.AssemblyInfo.cs
+C:\Users\d.shchebetovskyi\source\repos\roadmap\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net6.0\DoctorAppointmentScheduling.Domain.ImplicitNamespaceImports.cs
+C:\Users\d.shchebetovskyi\source\repos\roadmap\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net6.0\DoctorAppointmentScheduling.Domain.csproj.CoreCompileInputs.cache
+C:\Users\d.shchebetovskyi\source\repos\roadmap\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net6.0\DoctorAppointmentScheduling.Domain.dll
+C:\Users\d.shchebetovskyi\source\repos\roadmap\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net6.0\ref\DoctorAppointmentScheduling.Domain.dll
+C:\Users\d.shchebetovskyi\source\repos\roadmap\DoctorAppointmentSchedulingBackend\DoctorAppointmentScheduling.Domain\obj\Debug\net6.0\DoctorAppointmentScheduling.Domain.pdb
