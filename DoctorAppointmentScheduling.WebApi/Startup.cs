@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,26 @@ namespace DoctorAppointmentScheduling
                                   });
             });
 
+            services.AddAuthentication("Bearer")
+            .AddJwtBearer("Bearer", options =>
+            {
+                options.Authority = "https://localhost:5001";
+
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateAudience = false
+                };
+            });
+
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("ApiScope", policy =>
+            //    {
+            //        policy.RequireAuthenticatedUser();
+            //        policy.RequireClaim("scope", "api1");
+            //    });
+            //});
+
             var builder = new ConfigurationBuilder();
 
             builder.SetBasePath(Directory.GetCurrentDirectory());
@@ -61,38 +82,38 @@ namespace DoctorAppointmentScheduling
                 }
             }, ServiceLifetime.Transient);
 
-            services.AddScoped<DoctorService>();
-            services.AddScoped<PatientService>();
-            services.AddScoped<AppointmentService>();
-            services.AddScoped<ReviewService>();
+            //services.AddScoped<DoctorService>();
+            //services.AddScoped<PatientService>();
+            //services.AddScoped<AppointmentService>();
+            //services.AddScoped<ReviewService>();
 
-            services.AddScoped<DoctorRepository>();
-            services.AddScoped<PatientRepository>();
-            services.AddScoped<AppointmentRepository>();
-            services.AddScoped<ReviewRepository>();
+            //services.AddScoped<DoctorRepository>();
+            //services.AddScoped<PatientRepository>();
+            //services.AddScoped<AppointmentRepository>();
+            //services.AddScoped<ReviewRepository>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            services.AddIdentity<User, Role>(options =>
-            {
-                options.Password.RequiredLength = 8;
-                options.Password.RequireNonAlphanumeric = true;
-                options.Password.RequireUppercase = true;
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1d);
-                options.Lockout.MaxFailedAccessAttempts = 5;
-            })
-                .AddEntityFrameworkStores<ClinicDbContext>()
-                .AddDefaultTokenProviders();
+            //services.AddIdentity<User, Role>(options =>
+            //{
+            //    options.Password.RequiredLength = 8;
+            //    options.Password.RequireNonAlphanumeric = true;
+            //    options.Password.RequireUppercase = true;
+            //    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1d);
+            //    options.Lockout.MaxFailedAccessAttempts = 5;
+            //})
+            //    .AddEntityFrameworkStores<ClinicDbContext>()
+            //    .AddDefaultTokenProviders();
 
             services.AddControllers(options =>
             {
                 options.RespectBrowserAcceptHeader = true;
             });
 
-            services.Configure<JwtSettings>(Configuration.GetSection("Jwt"));
-            var jwtSettings = Configuration.GetSection("Jwt").Get<JwtSettings>();
+            //services.Configure<JwtSettings>(Configuration.GetSection("Jwt"));
+            //var jwtSettings = Configuration.GetSection("Jwt").Get<JwtSettings>();
 
-            services.AddAuth(jwtSettings);
+            // services.AddAuth(jwtSettings);
 
             services.AddSwaggerGen(options =>
             {
@@ -106,23 +127,23 @@ namespace DoctorAppointmentScheduling
                     Type = SecuritySchemeType.ApiKey,
                 });
 
-                var security =
-                    new OpenApiSecurityRequirement
-                    {
-                        {
-                            new OpenApiSecurityScheme
-                            {
-                                Reference = new OpenApiReference
-                                {
-                                    Id = "Bearer",
-                                    Type = ReferenceType.SecurityScheme
-                                },
-                                UnresolvedReference = true
-                            },
-                            new List<string>()
-                        }
-                    };
-                options.AddSecurityRequirement(security);
+                //var security =
+                //    new OpenApiSecurityRequirement
+                //    {
+                //        {
+                //            new OpenApiSecurityScheme
+                //            {
+                //                Reference = new OpenApiReference
+                //                {
+                //                    Id = "Bearer",
+                //                    Type = ReferenceType.SecurityScheme
+                //                },
+                //                UnresolvedReference = true
+                //            },
+                //            new List<string>()
+                //        }
+                //    };
+                //options.AddSecurityRequirement(security);
             });
         }
 
@@ -157,6 +178,7 @@ namespace DoctorAppointmentScheduling
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                // .RequireAuthorization("ApiScope"); ;
             });
 
             app.UseDefaultFiles();
